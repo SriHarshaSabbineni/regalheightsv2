@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Regal Heights - Premium luxury property advisory in London, Dubai, and global markets. Serviced apartments, waterfront estates, and exclusive acquisitions.">
+    <meta name="keywords" content="luxury property, London apartments, Dubai real estate, global property sales, serviced apartments, waterfront estates">
+    <meta name="author" content="Regal Heights">
+    <meta property="og:title" content="Regal Heights - Luxury Property Advisory">
+    <meta property="og:description" content="Premium luxury property advisory in London, Dubai, and global markets.">
+    <meta property="og:type" content="website">
+    <title>Regal Heights | London • Global • Dubai - Luxury Property Introductions</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Updated Fonts: Montserrat for UI/Body, Playfair Display for Luxury Headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Updated Color Scheme based on new Logo */
+            --gold: #d4af37;
+            --black: #171b4d; /* Midnight Navy */
+            --white: #ffffff;
+            --off-white: #f2f2f2; /* Light Gray */
+            --text-gray: #4a4a4a; /* Darkened for better readability on light gray */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--off-white);
+            color: var(--black);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            padding: 24px 0;
+        }
+        
+        nav.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+       
+        
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+        
+        .nav-item {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--black);
+            transition: color 0.3s;
+        }
+        
+        .nav-item:hover {
+            color: var(--gold);
+        }
+        
+        .btn-inquire {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 24px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-left: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-inquire:hover {
+            background: var(--gold);
+        }
+        
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 140px;
+        }
+		@media (max-width: 767px) {
+			.hero {
+				min-height: auto;
+				padding-bottom: 80px; /* Adjust this value to trim more or less space */
+			}
+			.hero-description {
+				margin-bottom: 0; /* Removes the extra bottom margin on mobile */
+			}
+		}
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(23, 27, 77, 0.6); /* Navy tint overlay */
+            z-index: 10;
+        }
+        
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: slowZoom 25s infinite alternate ease-in-out;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            color: var(--white);
+            padding: 0 24px;
+            max-width: 900px;
+        }
+        
+        .hero-tagline {
+            display: inline-block;
+            font-size: 10px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 32px;
+            padding: 8px 16px;
+            background: rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.15;
+            margin-bottom: 32px;
+        }
+        
+        .hero-description {
+            font-weight: 300;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            opacity: 0.95;
+        }
+        
+        
+        @media (min-width: 640px) {
+            .hero-btns {
+                flex-direction: row;
+            }
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 70px 24px;
+            background: var(--white);
+        }
+        
+        .features-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 64px;
+        }
+        
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .card-img-wrapper {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: #e5e7eb;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        .card-img-wrapper::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: rgba(23, 27, 77, 0.22);
+			pointer-events: none;
+		}
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+        
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+        
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .card-text {
+            color: var(--text-gray);
+            font-weight: 300;
+            margin-bottom: 24px;
+        }
+        
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--black);
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 4px;
+            transition: all 0.3s;
+        }
+        
+        .card-link:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        
+        /* Blog Section */
+        .blog-section {
+            padding: 70px 24px;
+            background: var(--off-white);
+        }
+        
+        .blog-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 10px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+        
+        @media (min-width: 768px) {
+            .blog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s;
+        }
+        
+        .blog-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .blog-img-wrapper {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            background: #e5e7eb;
+        }
+        
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .blog-card:hover .blog-img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 32px;
+        }
+        
+        .blog-date {
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .blog-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-gray);
+            font-weight: 300;
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        
+        .blog-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--black);
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 4px;
+            transition: all 0.3s;
+        }
+        
+        .blog-read-more:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        
+
+        
+        /* Contact Section */
+        .contact {
+            padding: 96px 24px;
+            background: #0F1235;
+        }
+        
+        .contact-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(23, 27, 77, 0.05); /* Navy tinted shadow */
+        }
+        
+        @media (min-width: 768px) {
+            .contact-card {
+                flex-direction: row;
+            }
+        }
+        
+        .contact-info {
+            flex: 1;
+            padding: 48px;
+            background: var(--off-white);
+        }
+        
+        .contact-form-area {
+            flex: 1;
+            padding: 48px;
+        }
+        
+        .info-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+		
+		.info-item a:hover {
+			color: var(--gold) !important;
+			transition: color 0.25s ease;
+		}
+        
+        .info-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            margin-bottom: 4px;
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 32px;
+        }
+        
+        .form-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            color: var(--text-gray);
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .form-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #d1d5db;
+            padding: 12px 0;
+            outline: none;
+            font-family: inherit;
+            font-weight: 300;
+            background: transparent;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            border-color: var(--gold);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            padding: 20px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background: var(--gold);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 50px 24px;
+            background: var(--white);
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer-logo {
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-link {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .footer-link:hover {
+            color: var(--gold);
+        }
+        
+        .copyright {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--text-gray);
+        }
+        
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 88px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 999;
+            padding: 32px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+
+		/* --- SPACING OVERHAUL --- */
+		.content-section, .stats-section, .values-section, .team-section, 
+		.cta-section, .features, .blog-section, .about, .contact, .listings-section {
+			padding: 70px 24px;
+		}
+
+		.page-header {
+			padding-top: 120px;
+			padding-bottom: 64px;
+		}
+
+		/* --- SOCIAL & FLOATING CHAT CSS --- */
+		.social-links {
+			display: flex;
+			justify-content: center;
+			gap: 24px;
+			margin-bottom: 32px;
+		}
+
+		.social-icon {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			padding: 0;
+			transition: opacity 0.25s ease, transform 0.25s ease;
+		}
+
+		.social-icon svg {
+			width: 20px;
+			height: 20px;
+			display: block;
+		}
+
+		/* Slightly darker, more premium brand tones */
+		.social-icon.linkedin {
+			color: #084C91; /* darker blue */
+		}
+
+		.social-icon.instagram {
+			color: #8E2C5E; /* darker pink/purple */
+		}
+		.social-icon.email {
+			color: #d4af37; /* Matches your brand's Gold color */
+		}
+		.social-icon.whatsapp {
+			color: #166A56; /* darker green */
+		}
+		.social-icon.facebook {
+			color: #0B3C78; /* darker Facebook blue */
+		}
+
+		.social-icon.x {
+			color: #111111; /* softer black for X */
+		}
+
+		.social-icon.tiktok {
+			color: #111111; /* base dark */
+		}
+		.social-icon.tiktok svg {
+			filter: drop-shadow(1px 0 #00f2ea) drop-shadow(-1px 0 #ff0050);
+			opacity: 0.85;
+			transform: scale(1.2);
+		}
+		.social-icon:hover {
+			opacity: 0.85;
+			transform: translateY(-1px);
+		}
+		/* --- PROFESSIONAL CIRCULAR CHAT WIDGET --- */
+		.floating-whatsapp {
+			position: fixed;
+			bottom: 32px;
+			right: 32px;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1000;
+			text-decoration: none;
+			color: #ffffff;
+			background: linear-gradient(145deg, #25D366, #128C7E);
+			box-shadow: 0 12px 28px rgba(18, 140, 126, 0.28), inset 0 1px 0 rgba(255,255,255,0.25);
+			transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+			overflow: hidden;
+		}
+
+		.floating-whatsapp::before {
+			content: "";
+			position: absolute;
+			inset: 1px;
+			border-radius: inherit;
+			background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+			pointer-events: none;
+		}
+
+		.floating-whatsapp svg {
+			width: 28px;
+			height: 28px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.floating-whatsapp:hover {
+			transform: translateY(-2px) scale(1.12);
+			filter: saturate(1.05);
+			box-shadow: 0 16px 34px rgba(18, 140, 126, 0.36);
+		}
+		
+		/* --- PREMIUM DROPDOWN STYLING --- */
+		select.form-input {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+			background-repeat: no-repeat;
+			background-position: right 8px center;
+			background-size: 16px;
+			padding-right: 32px;
+			border-radius: 0;
+			color: var(--black);
+			cursor: pointer;
+		}
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+		<div class="nav-container">
+			<div class="logo-group">
+				<img src="regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+			</div>
+			<div class="nav-links">
+				<a href="index.html" class="nav-item">Home</a>
+				<a href="about.html" class="nav-item">About</a>
+				<a href="london.html" class="nav-item">London</a>
+				<a href="property-sales.html" class="nav-item">Global</a>
+				<a href="dubai.html" class="nav-item">Dubai</a>
+				<a href="index.html#contact" class="btn-inquire">Enquire</a>
+			</div>
+			<button class="menu-toggle" id="menuToggle">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+	</nav>
+
+	<div class="mobile-menu" id="mobileMenu">
+		<a href="index.html" class="nav-item">Home</a>
+		<a href="about.html" class="nav-item">About</a>
+		<a href="london.html" class="nav-item">London</a>
+		<a href="property-sales.html" class="nav-item">Global</a>
+		<a href="dubai.html" class="nav-item">Dubai</a>
+		<a href="index.html#contact" class="btn-submit" style="text-align: center;">Enquire</a>
+	</div>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="hero-overlay"></div>
+                <img src="https://images.pexels.com/photos/29253520/pexels-photo-29253520.jpeg?auto=format&fit=crop&q=80&w=2000" alt="London Skyline" class="hero-img">
+            </div>
+            <div class="hero-content">
+                <div class="hero-tagline">Guaranteed Access to Private Residential Introductions</div>
+                <h1 class="hero-title font-serif">
+                    The Standard of <br>
+                    <span style="font-style: italic; font-weight: 300;">Exquisite Living.</span>
+                </h1>
+                <p class="hero-description">
+                    Specialized luxury short stays in London with exclusive direct-booking benefits, alongside premium global property introductions. 
+                </p>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features">
+			<div class="features-grid">
+				<div class="card" id="london">
+					<div class="card-img-wrapper">
+						<img src="https://images.pexels.com/photos/31147777/pexels-photo-31147777.jpeg?auto=format&fit=crop&q=80&w=1000" alt="London Serviced Apartments" class="card-img">
+					</div>
+					<h4 class="card-title font-serif">London UK</h4>
+					<p class="card-text">Luxury short stays moments from Excel London in Royal Victoria. Experience distinguished service, and exclusive perks, like better rates and priority upgrades, when you book directly with us.</p>
+					<a href="london.html" class="card-link" style="text-decoration: none;">Take me there →</a>
+				</div>
+				
+				<div class="card" id="sales">
+					<div class="card-img-wrapper">
+						<img src="https://images.unsplash.com/photo-1613977257365-aaae5a9817ff?auto=format&fit=crop&q=80&w=1000" alt="Ultra Premium Global Properties" class="card-img">
+					</div>
+					<h4 class="card-title font-serif">Global Properties</h4>
+					<p class="card-text">Client-side introductions for high-yield acquisitions across UK and International regions. Vetted global opportunities for discerning investors and property seekers.</p>
+					<a href="property-sales.html" class="card-link" style="text-decoration: none;">Take me there →</a>
+				</div>
+				
+				<div class="card" id="dubai">
+					<div class="card-img-wrapper">
+						<img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?auto=format&fit=crop&q=80&w=1000" alt="Dubai Waterfront Estates" class="card-img">
+					</div>
+					<h4 class="card-title font-serif">Dubai UAE</h4>
+					<p class="card-text">Palm Jebel Ali – Dubai's iconic newest postcode. Exclusive access to ultra-prime waterfront villas and estates with unparalleled luxury and lifestyle.</p>
+					<a href="dubai.html" class="card-link" style="text-decoration: none;">Take me there →</a>
+				</div>
+			</div>
+		</section>
+        
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="contact-card">
+                <div class="contact-info">
+                    <h3 class="card-title font-serif" style="font-size: 32px; margin-bottom: 32px;">Let's Connect</h3>
+                    <p class="card-text" style="margin-bottom: 48px;">Whether you have a question or need assistance with a bespoke property enquiry, our team is here to help.</p>
+                    <div class="info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <div>
+                            <span class="info-label">Office</span>
+                            <p style="font-size: 14px; font-weight: 300;">Royal Victoria, East London, UK</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        <div>
+							<span class="info-label">Direct & WhatsApp</span>
+							<p style="font-size: 14px; font-weight: 300;">
+								<a href="tel:+447879991235" style="text-decoration: none; color: inherit;">+44787991235</a>
+							</p>
+						</div>
+                    </div>
+                    <div class="info-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+						<div>
+							<span class="info-label">Email</span>
+							<p style="font-size: 14px; font-weight: 300;">
+								<a href="mailto:info@regalheights.co.uk" style="text-decoration: none; color: inherit;">info@regalheights.co.uk</a>
+							</p>
+						</div>
+                    </div>
+                </div>
+                <div class="contact-form-area">
+					<form action="https://formsubmit.co/info@regalheights.co.uk" method="POST">
+						<input type="hidden" name="_subject" value="New Website Enquiry - Regal Heights">
+						<input type="hidden" name="_captcha" value="false">
+						
+						<div class="form-group">
+							<label class="form-label">Full Name</label>
+							<input type="text" name="name" class="form-input" required>
+						</div>
+						<div class="form-group">
+							<label class="form-label">Email Address</label>
+							<input type="email" name="email" class="form-input" required>
+						</div>
+						
+						<div class="form-group">
+							<label class="form-label">Interest</label>
+							<select name="interest" class="form-input" required>
+								<option value="" disabled selected>Select an area of interest...</option>
+								<option value="London Stay Enquiry">London Short Stays</option>
+								<option value="Global Properties Sales Introductions">Global Properties</option>
+								<option value="Dubai (Palm Jebel Ali)">Dubai (Palm Jebel Ali)</option>
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label class="form-label">Message</label>
+							<textarea name="message" class="form-input" style="resize: vertical; min-height: 120px;" required></textarea>
+						</div>
+						<button type="submit" class="btn-submit">Submit Enquiry</button>
+					</form>
+				</div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog-section">
+            <div class="blog-container">
+                <div class="section-header">
+                    <span class="section-subtitle">Latest Insights</span>
+                    <h2 class="section-title font-serif">Featured Articles</h2>
+                </div>
+                <div class="blog-grid">
+                    <!-- Blog Card 1 -->
+                    <div class="blog-card">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=500" alt="London Luxury Living" class="blog-img">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">March 2026</span>
+                            <h3 class="blog-title font-serif">The Art of Luxury Living in London</h3>
+                            <p class="blog-excerpt">Discover what defines luxury residential experiences in London's most prestigious neighborhoods and how to find your perfect sanctuary.</p>
+                            <a href="blog-articles/london-luxury-living.html" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Card 2 -->
+                    <div class="blog-card">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=500" alt="Dubai Real Estate Investment" class="blog-img">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">February 2026</span>
+                            <h3 class="blog-title font-serif">Dubai Waterfront: Investment Guide</h3>
+                            <p class="blog-excerpt">Explore the opportunities in Dubai's most coveted waterfront properties and understand the investment potential of Palm Jebel Ali.</p>
+                            <a href="blog-articles/dubai-waterfront-guide.html" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Card 3 -->
+                    <div class="blog-card">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=500" alt="Global Property Investment" class="blog-img">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">January 2026</span>
+                            <h3 class="blog-title font-serif">Global Property Investment Trends</h3>
+                            <p class="blog-excerpt">Stay informed about emerging trends in international real estate markets and make strategic investment decisions with confidence.</p>
+                            <a href="blog-articles/global-property-investment.html" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 64px;">
+                    <a href="blog.html" class="card-link" style="justify-content: center;">View All Articles →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+		<div class="footer-logo">
+			<img src="regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+		</div>
+		
+		<div class="footer-links">
+			<a href="terms.html" class="footer-link">Terms</a>
+			<a href="privacy.html" class="footer-link">Privacy</a>
+			<a href="london.html" class="footer-link">London Stays</a>
+			<a href="#" class="footer-link">Global Properties</a>
+			<a href="index.html#contact" class="footer-link">Contact</a>
+		</div>
+		
+		<div class="social-links">
+			<a href="https://www.linkedin.com/company/regal-heights-consultancy/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+			</a>
+			<a href="https://instagram.com/regalheightsworld" target="_blank" class="social-icon instagram" aria-label="Instagram">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+			</a>
+			<a href="https://wa.me/447879991235" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+			</a>
+			<a href="mailto:info@regalheights.co.uk" class="social-icon email" aria-label="Email">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon facebook" aria-label="Facebook">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon x" aria-label="X">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M18.244 2H21.5l-7.45 8.51L23 22h-6.83l-5.35-7.02L4.5 22H1.244l7.97-9.11L1 2h6.92l4.84 6.41L18.244 2zm-1.2 18h1.9L7.1 3.9H5.06L17.044 20z"/>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M14 3v10a4 4 0 1 1-4-4"/>
+					<path d="M14 3c1.5 2 3.5 3 6 3"/>
+				</svg>
+			</a>
+		</div>
+
+		<p class="copyright">© 2026 Regal Heights • London • UK, All Rights Reserved.</p>
+	</footer>
+
+    <a href="https://wa.me/447879991235" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+		<svg viewBox="0 0 32 32" fill="currentColor">
+			<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2.1 7.7 2.1 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.7c-2.4 0-4.7-.7-6.6-2l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2-2.1-4.3-2.1-6.8 0-6.8 5.5-12.3 12.3-12.3S28.3 9.2 28.3 16 22.8 29.1 16 29.1zm6.7-9.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.7-.2-1 .2s-1.1 1.2-1.3 1.4-.5.3-.9.1c-.4-.2-1.8-.7-3.4-2.2-1.3-1.1-2.2-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-1-2.4-1.3-3.3-.3-.8-.6-.7-1-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.6-1.7.3-.8.3-1.5.2-1.7-.1-.2-.4-.3-.8-.5z"/>
+		</svg>
+    </a>
+    
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

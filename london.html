@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Regal Heights London - Premium serviced apartments in Royal Victoria, East London. Luxury short-let accommodations near Excel London for corporate professionals and travelers.">
+    <meta name="keywords" content="London serviced apartments, luxury accommodation, Royal Victoria, Excel London, short-let, corporate housing">
+    <meta name="author" content="Regal Heights">
+    <title>London Serviced Apartments | Regal Heights</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --black: #171b4d; 
+            --navy-dark: #0F1235;
+            --white: #ffffff;
+            --off-white: #fcfcfc;
+            --text-gray: #555555;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--off-white); color: var(--black); line-height: 1.6; scroll-behavior: smooth; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Navigation */
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--white); border-bottom: 1px solid #e5e7eb; transition: all 0.3s ease; padding: 24px 0; }
+        nav.scrolled { padding: 16px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-group { display: flex; align-items: center; gap: 12px; }
+        .nav-links { display: none; align-items: center; gap: 40px; }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+        .nav-item { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; text-decoration: none; color: var(--black); transition: color 0.3s; }
+        .nav-item:hover { color: var(--gold); }
+        .btn-inquire { background: var(--black); color: var(--white); padding: 10px 24px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.3s; margin-left: 16px; border: none; cursor: pointer; }
+        .btn-inquire:hover { background: var(--gold); }
+        .menu-toggle { display: block; background: none; border: none; cursor: pointer; }
+        @media (min-width: 768px) { .menu-toggle { display: none; } }
+        
+        /* Mobile Menu */
+        .mobile-menu { display: none; position: fixed; top: 88px; left: 0; width: 100%; background: var(--white); z-index: 999; padding: 32px 24px; border-bottom: 1px solid #e5e7eb; flex-direction: column; gap: 24px; }
+        .mobile-menu.active { display: flex; }
+        .btn-submit { width: 100%; background: var(--black); color: var(--white); padding: 20px; text-transform: uppercase; font-size: 11px; letter-spacing: 0.3em; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; }
+        .btn-submit:hover { background: var(--gold); }
+
+        /* Page Header */
+		.page-header {
+			position: relative;
+			min-height: 60vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			padding-top: 125px; 
+			padding-bottom: 65px; 
+		}
+        .page-header-bg { position: absolute; inset: 0; z-index: 0; }
+        .page-header-overlay { position: absolute; inset: 0; background: rgba(23, 27, 77, 0.7); z-index: 10; }
+        .page-header-img { width: 100%; height: 100%; object-fit: cover; }
+        .page-header-content { position: relative; z-index: 20; text-align: center; color: var(--white); padding: 0 24px; max-width: 900px; }
+        .page-header-title { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.15; margin-bottom: 24px; }
+        .page-header-subtitle { font-weight: 300; font-size: clamp(1rem, 2vw, 1.125rem); opacity: 0.95; }
+
+		/* USP SECTION */
+		.usp-section-contained { background-color: #0F1235; padding: 96px 24px; }
+		.usp-container-dark { max-width: 1280px; margin: 0 auto; background-color: #0F1235; display: grid; grid-template-columns: 1fr; gap: 32px; }
+
+		/* MOBILE STICKY LOGIC */
+		.usp-intro { display: contents; } 
+
+		.usp-mobile-sticky { 
+			position: sticky; 
+			top: 70px; 
+			background-color: #0F1235; 
+			z-index: 10; 
+			padding: 16px 0 24px 0; 
+			margin-top: -16px; 
+		}
+		.usp-kicker { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 16px; display: block; }
+		.usp-mobile-sticky h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); color: var(--white); line-height: 1.1; margin-bottom: 0; }
+		.usp-intro p { color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; line-height: 1.8; font-weight: 300; margin-bottom: 32px; }
+
+		/* DESKTOP STICKY LOGIC */
+		@media (min-width: 900px) { 
+			.usp-container-dark { grid-template-columns: 1fr 2fr; align-items: start; gap: 64px; } 
+			.usp-intro { display: block; position: sticky; top: 120px; } 
+			.usp-mobile-sticky { position: relative; top: 0; background-color: transparent; padding: 0; padding-bottom: 24px; margin-top: 0; }
+			.usp-intro p { margin-bottom: 0; }
+		}
+
+		/* Feature Grid */
+		.usp-grid-modern { display: grid; grid-template-columns: 1fr; gap: 48px 40px; }
+		@media (min-width: 600px) { .usp-grid-modern { grid-template-columns: repeat(2, 1fr); } }
+		.usp-feature { border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 24px; transition: transform 0.3s ease, border-color 0.3s ease; }
+		.usp-feature:hover { transform: translateY(-4px); border-top-color: var(--gold); }
+		.usp-feature-number { font-size: 12px; letter-spacing: 0.2em; color: var(--gold); font-weight: 700; margin-bottom: 12px; display: block; }
+		.usp-feature h4 { font-size: 18px; margin-bottom: 12px; color: var(--white); font-weight: 500; letter-spacing: 0.05em; }
+		.usp-feature p { font-size: 14px; color: rgba(255, 255, 255, 0.65); line-height: 1.6; font-weight: 300; }
+
+        /* LISTINGS SECTION */
+        .listings-section { padding: 96px 5% 16px; overflow: hidden; max-width: 1400px; margin: 0 auto; background: var(--off-white); }
+        .section-label { font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 12px; display: block; text-align: center; }
+        .main-heading { font-size: clamp(2rem, 5vw, 3rem); text-align: center; margin-bottom: 60px; line-height: 1.2; color: var(--navy-dark); }
+        .subsection-header { margin-bottom: 30px; }
+        .boutique-kicker { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 8px; display: block; }
+        .boutique-title { font-size: 2rem; color: var(--navy-dark); margin-bottom: 12px; line-height: 1.2; }
+        .boutique-desc { font-size: 1rem; color: var(--text-gray); font-weight: 300; max-width: 800px; margin-bottom: 24px; }
+
+        /* Dynamic Progress Indicator */
+        .scroll-progress-container { display: flex; gap: 4px; align-items: center; margin-top: 16px; }
+        .dash-hitbox { padding: 12px 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .progress-dash { width: 24px; height: 3px; background-color: rgba(15, 18, 53, 0.15); border-radius: 2px; transition: background-color 0.4s ease, width 0.4s ease; }
+        .dash-hitbox.active .progress-dash { background-color: var(--gold); width: 36px; }
+
+        /* Sliders */
+        .slider { position: relative; width: 100%; height: 100%; overflow: hidden; background: #e5e7eb; cursor: pointer; }
+        .slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.4s ease, transform 0.6s ease; }
+        .slider img.active { opacity: 1; z-index: 1; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.9); color: var(--black); border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 10; opacity: 1; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .slider-btn:hover { background: var(--gold); color: var(--white); }
+        .slider-btn.prev { left: 12px; }
+        .slider-btn.next { right: 12px; }
+
+        /* Horizontal Scroll Area */
+        .scroll-container { display: flex; overflow-x: auto; gap: 24px; padding-bottom: 30px; margin-bottom: 40px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+        .scroll-container:last-of-type { margin-bottom: 0; }
+        .scroll-container::-webkit-scrollbar { display: none; }
+        .scroll-card { flex: 0 0 380px; scroll-snap-align: start; position: relative; height: 500px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        @media (max-width: 768px) { .scroll-container { width: 100vw; margin-left: -5vw; padding-left: 5vw; padding-right: 5vw; } .scroll-card { flex: 0 0 85vw; height: 450px; } }
+        .scroll-card:hover .slider img.active { transform: scale(1.05); }
+        .card-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 18, 53, 0.95) 0%, rgba(15, 18, 53, 0.7) 45%, transparent 100%); padding: 40px 24px 24px; color: white; z-index: 5; pointer-events: none; }
+        .card-overlay * { pointer-events: auto; } 
+        .overlay-title { font-size: 1.6rem; margin-bottom: 4px; }
+        .overlay-location { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); font-weight: 300; margin-bottom: 12px; }
+        .overlay-meta { font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; font-weight: 600; }
+        .overlay-actions { display: flex; gap: 12px; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 16px; }
+        .btn-overlay-inquire { background: var(--white); color: var(--black); padding: 10px 16px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; text-decoration: none; border-radius: 6px; flex-grow: 1; text-align: center; transition: background 0.3s; cursor: pointer; }
+        .btn-overlay-inquire:hover { background: var(--gold); color: var(--white); }
+        .whatsapp-overlay { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: #25D366; transition: all 0.3s; flex-shrink: 0; }
+        .whatsapp-overlay svg { width: 18px; height: 18px; fill: currentColor; }
+        .whatsapp-overlay:hover { background: #25D366; color: white; border-color: #25D366; }
+
+        /* BLOG SECTION */
+        .blog-section { padding: 32px 24px 96px; background: var(--off-white); }
+        .blog-header { text-align: center; margin-bottom: 64px; }
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 48px; max-width: 1280px; margin: 0 auto; }
+        @media (min-width: 768px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+        .blog-card { background: var(--white); border: 1px solid #e5e7eb; transition: all 0.3s; }
+        .blog-card:hover { box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        .blog-img-wrapper { aspect-ratio: 16/9; overflow: hidden; background: #e5e7eb; }
+        .blog-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .blog-card:hover .blog-img { transform: scale(1.05); }
+        .blog-content { padding: 32px; }
+        .blog-date { font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; display: block; }
+        .blog-title { font-size: 18px; margin-bottom: 12px; line-height: 1.4; font-weight: 600; }
+        .blog-excerpt { color: var(--text-gray); font-weight: 300; font-size: 14px; margin-bottom: 16px; line-height: 1.6; }
+        .blog-read-more { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; text-decoration: none; color: var(--black); border-bottom: 1px solid var(--black); padding-bottom: 4px; transition: all 0.3s; }
+        .blog-read-more:hover { color: var(--gold); border-color: var(--gold); }
+        
+        /* CTA SECTION */
+        .cta-section { padding: 48px 24px; background: #0F1235; color: var(--white); text-align: center; }
+        .cta-container { max-width: 800px; margin: 0 auto; }
+        .cta-title { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px; }
+        .cta-text { font-weight: 300; font-size: 1.125rem; margin-bottom: 48px; opacity: 0.9; }
+        .btn-primary { background: var(--white); color: var(--black); padding: 20px 40px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.2em; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-primary:hover { background: var(--gold); color: var(--white); }
+        
+        /* FOOTER */
+        footer { padding: 80px 24px; background: var(--white); text-align: center; border-top: 1px solid #e5e7eb; }
+        .footer-logo { margin-bottom: 60px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 48px; }
+        .footer-link { text-decoration: none; color: var(--text-gray); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; transition: color 0.3s; font-weight: 500; }
+        .footer-link:hover { color: var(--black); }
+        .copyright { font-size: 9px; text-transform: uppercase; letter-spacing: 0.4em; color: var(--text-gray); }
+        
+		/* Social Links */
+		.social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; }
+		.social-icon { color: var(--text-gray); transition: color 0.3s, transform 0.3s; display: flex; align-items: center; justify-content: center; }
+		.social-icon:hover { color: var(--black); transform: translateY(-2px); }
+		.social-icon.linkedin { color: #084C91; }
+		.social-icon.instagram { color: #8E2C5E; }
+		.social-icon.whatsapp { color: #166A56; }
+		.social-icon.facebook { color: #0B3C78; }
+		.social-icon.x { color: #111111; }
+		.social-icon.tiktok { color: #111111; transform: scale(1.2); filter: drop-shadow(1px 0 #00f2ea) drop-shadow(-1px 0 #ff0050); opacity: 0.85;}
+		.social-icon.email {
+			color: #d4af37; /* Matches your brand's Gold color */
+		}
+
+        /* Floating WhatsApp Widget */
+		.floating-whatsapp { position: fixed; bottom: 32px; right: 32px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; color: #ffffff; background: linear-gradient(145deg, #25D366, #128C7E); box-shadow: 0 12px 28px rgba(18, 140, 126, 0.28), inset 0 1px 0 rgba(255,255,255,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease; overflow: hidden; }
+		.floating-whatsapp::before { content: ""; position: absolute; inset: 1px; border-radius: inherit; background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0)); pointer-events: none; }
+		.floating-whatsapp svg { width: 28px; height: 28px; position: relative; z-index: 1; }
+		.floating-whatsapp:hover { transform: translateY(-2px) scale(1.12); filter: saturate(1.05); box-shadow: 0 16px 34px rgba(18, 140, 126, 0.36); }
+
+		/* =========================================
+           PREMIUM RESPONSIVE MODAL STYLES 
+           ========================================= */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15, 18, 53, 0.85); z-index: 9999; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        
+        .modal-content { 
+            background: var(--white); 
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            width: 100%; 
+            max-width: 1200px; 
+            height: 90vh; 
+            border-radius: 12px; 
+            position: relative; 
+            overflow: hidden; 
+            transform: translateY(20px); 
+            transition: transform 0.3s ease; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+        
+        .modal-close { position: absolute; top: 16px; right: 24px; background: rgba(15, 18, 53, 0.8); color: white; border: none; font-size: 24px; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; z-index: 100; display: flex; align-items: center; justify-content: center; transition: background 0.3s;}
+        .modal-close:hover { background: var(--gold); }
+
+        .modal-grid { display: flex; flex-direction: column; width: 100%; height: 100%; overflow-y: auto; }
+        @media (min-width: 900px) { .modal-grid { display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; } }
+
+        .modal-gallery-container { 
+            display: flex; 
+            flex-direction: column; 
+            background: var(--navy-dark); 
+            width: 100%;
+            flex-shrink: 0; 
+        }
+        @media (min-width: 900px) { .modal-gallery-container { height: 100%; overflow: hidden; } }
+
+        .modal-main-image { flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; }
+        .modal-main-image img { width: 100%; height: 100%; object-fit: cover; } 
+
+        .modal-main-image .prev { left: 16px; }
+        .modal-main-image .next { right: 16px; }
+
+        .modal-thumbnails { display: flex; overflow-x: auto; gap: 8px; padding: 12px; background: rgba(0, 0, 0, 0.3); scrollbar-width: none; flex-shrink: 0;}
+        .modal-thumbnails::-webkit-scrollbar { display: none; }
+        .modal-thumb { width: 80px; height: 60px; object-fit: cover; cursor: pointer; opacity: 0.5; border-radius: 4px; transition: 0.3s; flex-shrink: 0; border: 2px solid transparent; }
+        .modal-thumb.active, .modal-thumb:hover { opacity: 1; border-color: var(--gold); }
+
+        .modal-info { display: flex; flex-direction: column; background: var(--white); }
+        @media (min-width: 900px) { .modal-info { height: 100%; overflow-y: auto; } }
+
+        .modal-header { padding: 32px 32px 24px; border-bottom: 1px solid rgba(15, 18, 53, 0.1); }
+        .modal-title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin: 8px 0; color: var(--black); line-height: 1.1; }
+        .modal-meta { font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-weight: 700;}
+        .modal-location { font-size: 14px; color: var(--text-gray); }
+        
+        .modal-scroll-area { padding: 32px; flex-grow: 1; } 
+        .modal-section { margin-bottom: 32px; }
+        .modal-section h3 { font-size: 18px; margin-bottom: 16px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 4px; }
+        
+        .details-grid { display: grid; grid-template-columns: 1fr; gap: 32px; } 
+        
+        #modalAmenities li::before, #modalRules li::before { content: none; margin: 0; }
+
+        #modalAmenities { 
+            display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin-top: 12px; list-style: none;
+        }
+        #modalAmenities li { 
+            background: rgba(212, 175, 55, 0.08); 
+            color: var(--black); 
+            padding: 8px 16px; 
+            border-radius: 30px; 
+            font-size: 12px; 
+            font-weight: 600; 
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: inline-block;
+        }
+        
+        #modalRules {
+            list-style-type: disc; padding-left: 20px; margin-top: 12px;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        #modalRules li { font-size: 14px; color: var(--text-gray); font-weight: 400; background: none; border: none; padding: 0; }
+
+        .modal-map iframe { width: 100%; height: 250px; border: 0; border-radius: 8px; margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        .modal-footer { padding: 24px 32px; border-top: 1px solid rgba(15, 18, 53, 0.1); display: flex; justify-content: space-between; align-items: center; background: #fcfcfc; flex-shrink: 0;}
+        @media (max-width: 400px) { .modal-footer { flex-direction: column; gap: 16px; align-items: stretch; text-align: center; } }
+        
+        .btn-modal-primary { 
+            background: var(--black); 
+            color: var(--white); 
+            padding: 16px 32px; 
+            text-transform: uppercase; 
+            font-size: 10px; 
+            letter-spacing: 0.2em; 
+            font-weight: 700; 
+            font-family: 'Montserrat', sans-serif; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            transition: 0.3s; 
+            text-align: center; 
+        }
+        .btn-modal-primary:hover { background: var(--gold); }
+    </style>
+</head>
+<body>
+    
+    <nav id="navbar">
+		<div class="nav-container">
+			<div class="logo-group">
+				<img src="regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+			</div>
+			<div class="nav-links">
+				<a href="index.html" class="nav-item">Home</a>
+				<a href="about.html" class="nav-item">About</a>
+				<a href="london.html" class="nav-item">London</a>
+				<a href="property-sales.html" class="nav-item">Global</a>
+				<a href="dubai.html" class="nav-item">Dubai</a>
+				<a href="index.html#contact" class="btn-inquire">Enquire</a>
+			</div>
+			<button class="menu-toggle" id="menuToggle">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+	</nav>
+
+	<div class="mobile-menu" id="mobileMenu">
+		<a href="index.html" class="nav-item">Home</a>
+		<a href="about.html" class="nav-item">About</a>
+		<a href="london.html" class="nav-item">London</a>
+		<a href="property-sales.html" class="nav-item">Global</a>
+		<a href="dubai.html" class="nav-item">Dubai</a>
+		<a href="index.html#contact" class="btn-submit" style="text-align: center;">Enquire</a>
+	</div>
+    
+    <main>
+        <div class="page-header">
+            <div class="page-header-bg">
+                <div class="page-header-overlay"></div>
+                <img src="eastlondon.jpg" alt="London Skyline" class="page-header-img">
+            </div>
+            <div class="page-header-content">
+                <h1 class="page-header-title font-serif">London Serviced Short Stays</h1>
+                <p class="page-header-subtitle">Premium luxury short-let Apartments in London</p>
+            </div>
+        </div>
+		
+        <section class="usp-section-contained">
+			<div class="usp-container-dark">
+				<div class="usp-intro">
+					<div class="usp-mobile-sticky">
+						<span class="usp-kicker">Why Book With Us</span>
+						<h2 class="font-serif">The Direct<br>Advantage</h2>
+					</div>
+					<p>Experience the pinnacle of luxury living with exclusive benefits, priority support, and unmatched flexibility reserved solely for our direct guests.</p>
+				</div>
+				<div class="usp-grid-modern">
+					<div class="usp-feature">
+						<span class="usp-feature-number">01</span>
+						<h4>Best Direct Rates</h4>
+						<p>Beat excess middlemen rates. Guarantee the most competitive pricing available by booking straight through our platform.</p>
+					</div>
+					<div class="usp-feature">
+						<span class="usp-feature-number">02</span>
+						<h4>Flexible Stays</h4>
+						<p>Plans change. Enjoy seamless modifications and liberal cancellation policies tailored to your schedule*.</p>
+					</div>
+					<div class="usp-feature">
+						<span class="usp-feature-number">03</span>
+						<h4>Direct Support</h4>
+						<p>Fast, personal communication. Connect immediately with our dedicated local staff or team.</p>
+					</div>
+					<div class="usp-feature">
+						<span class="usp-feature-number">04</span>
+						<h4>Priority Upgrades</h4>
+						<p>Enjoy complimentary room upgrades when available, prioritized exclusively for our direct clients.</p>
+					</div>
+					<div class="usp-feature">
+						<span class="usp-feature-number">05</span>
+						<h4>Bespoke Requests</h4>
+						<p>From private chefs to airport transfers, we tailor your apartment and stay to your exact requirements at a cost.</p>
+					</div>
+					<div class="usp-feature">
+						<span class="usp-feature-number">06</span>
+						<h4>Live Viewings</h4>
+						<p>See it before you stay. Request personalized, live video walkthroughs via WhatsApp.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        <section class="listings-section">
+            <span class="section-label">Featured Properties</span>
+            <h2 class="main-heading font-serif">Our Curated Collection</h2>
+            
+            <div class="subsection-header">
+                <span class="boutique-kicker">The Corporate Hub</span>
+                <h2 class="boutique-title font-serif">Royal Victoria, East London</h2>
+                <p class="boutique-desc">Situated near the ExCel Exhibition Centre and the financial districts, our premium apartments offer unmatched convenience for corporate professionals and discerning travelers.</p>
+                <div class="scroll-progress-container" id="scrollProgress"></div>
+            </div>
+            
+            <div class="scroll-container" id="eastLondonContainer"></div>
+        
+            <div class="subsection-header">
+                <span class="boutique-kicker">Entertainment & Leisure</span>
+                <h2 class="boutique-title font-serif">Chalkhill Road, NW London</h2>
+                <p class="boutique-desc">Located moments from the iconic stadium and arena, our Wembley retreats provide the perfect sanctuary combining modern luxury with vibrant local energy.</p>
+                <div class="scroll-progress-container" id="scrollProgress2"></div>
+            </div>
+            
+            <div class="scroll-container" id="nwLondonContainer"></div>
+        </section>
+
+        <section class="blog-section">
+            <div class="content-container">
+                <div class="blog-header">
+                    <span class="section-label">Latest Insights</span>
+                    <h2 class="section-title font-serif">London Living Guide</h2>
+                </div>
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=500" alt="London Luxury Living" class="blog-img">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">March 2026</span>
+                            <h3 class="blog-title font-serif">The Art of Luxury Living in London</h3>
+                            <p class="blog-excerpt">Discover what defines luxury residential experiences in London's most prestigious neighborhoods and how to find your perfect sanctuary.</p>
+                            <a href="blog-articles/london-luxury-living.html" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=500" alt="Royal Victoria" class="blog-img">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">February 2026</span>
+                            <h3 class="blog-title font-serif">Royal Victoria: London's Emerging Gem</h3>
+                            <p class="blog-excerpt">Explore the transformation of Royal Victoria and why it's becoming London's most sought-after residential destination.</p>
+                            <a href="blog-articles/london-luxury-living.html" class="blog-read-more">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 64px;">
+                    <a href="blog.html" class="blog-read-more" style="justify-content: center;">View All Articles →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title font-serif">Ready to Experience London Living?</h2>
+                <p class="cta-text">Discover our collection of premium serviced apartments and unlock exclusive direct-booking benefits today.</p>
+                <a href="index.html#contact" class="btn-primary">Get In Touch</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+		<div class="footer-logo">
+			<img src="regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+		</div>
+		<div class="footer-links">
+			<a href="terms.html" class="footer-link">Terms</a>
+			<a href="privacy.html" class="footer-link">Privacy</a>
+			<a href="london.html" class="footer-link">London Stays</a>
+			<a href="#" class="footer-link">Global Properties</a>
+			<a href="index.html#contact" class="footer-link">Contact</a>
+		</div>
+		<div class="social-links">
+			<a href="https://www.linkedin.com/company/regal-heights-consultancy/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+			</a>
+			<a href="https://instagram.com/regalheightsworld" target="_blank" class="social-icon instagram" aria-label="Instagram">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+			</a>
+			<a href="https://wa.me/447879991235" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+			</a>
+			<a href="mailto:info@regalheights.co.uk" class="social-icon email" aria-label="Email">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon facebook" aria-label="Facebook">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon x" aria-label="X">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.45 8.51L23 22h-6.83l-5.35-7.02L4.5 22H1.244l7.97-9.11L1 2h6.92l4.84 6.41L18.244 2zm-1.2 18h1.9L7.1 3.9H5.06L17.044 20z"/></svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v10a4 4 0 1 1-4-4"/><path d="M14 3c1.5 2 3.5 3 6 3"/></svg>
+			</a>
+		</div>
+		<p class="copyright">© 2026 Regal Heights • London • UK, All Rights Reserved.</p>
+	</footer>
+
+    <a href="https://wa.me/447879991235" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+		<svg viewBox="0 0 32 32" fill="currentColor"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2.1 7.7 2.1 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.7c-2.4 0-4.7-.7-6.6-2l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2-2.1-4.3-2.1-6.8 0-6.8 5.5-12.3 12.3-12.3S28.3 9.2 28.3 16 22.8 29.1 16 29.1zm6.7-9.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.7-.2-1 .2s-1.1 1.2-1.3 1.4-.5.3-.9.1c-.4-.2-1.8-.7-3.4-2.2-1.3-1.1-2.2-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-1-2.4-1.3-3.3-.3-.8-.6-.7-1-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.6-1.7.3-.8.3-1.5.2-1.7-.1-.2-.4-.3-.8-.5z"/></svg>
+    </a>
+
+    <div id="propertyModal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="closeModal" class="modal-close">×</button>
+            
+            <div class="modal-grid">
+                <div class="modal-gallery-container">
+                    <div class="modal-main-image">
+                        <button class="slider-btn prev" id="modalPrev">‹</button>
+						<img id="modalMainImg" src="" alt="Property view">
+						<button class="slider-btn next" id="modalNext">›</button>
+                    </div>
+                    <div class="modal-thumbnails" id="modalThumbnails">
+                        </div>
+                </div>
+
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <span class="modal-meta" id="modalMeta"></span>
+                        <h2 class="modal-title font-serif" id="modalTitle"></h2>
+                        <p class="modal-location" id="modalLocation"></p>
+                    </div>
+
+                    <div class="modal-scroll-area">
+                        <div class="modal-section">
+                            <h3>Description</h3>
+                            <div id="modalDescription" style="font-size: 14px; color: var(--text-gray); line-height: 1.7;"></div>
+                        </div>
+
+                        <div class="modal-section">
+                            <h3>Details & Amenities</h3>
+                            <div class="details-grid">
+                                <div>
+                                    <h4 style="font-size:14px; margin-bottom: 8px; color: var(--black);">Included in your stay</h4>
+                                    <ul class="modal-list" id="modalAmenities"></ul>
+                                </div>
+                                <div>
+                                    <h4 style="font-size:14px; margin-bottom: 8px; color: var(--black);">House Rules</h4>
+                                    <ul class="modal-list" id="modalRules"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-section" id="modalMapSection">
+                            <h3>Location</h3>
+                            <div class="modal-map" id="modalMap"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <p class="modal-price" style="font-size: 24px; font-weight: bold; color: var(--black);"><span id="modalPrice"></span> <span style="font-size: 14px; font-weight: normal; color: var(--text-gray);">/ night</span></p>
+                        <a href="#" class="btn-modal-primary" id="modalEnquireBtn">Enquire Now Via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // =========================================================
+        // 1. === INSERT ALL YOUR PROPERTY DATA HERE ===
+        // =========================================================
+        const propertyDatabase = [
+            {
+				id: 'excel-pad',
+				type: 'scroll', 
+				title: 'Excel Pad',
+				location: 'Western Gateway, Greater London',
+				meta: '3 Bed • 3 Bath • 6 Guests',
+				price: '---', // Please provide the exact price
+				images: [
+					'ExcelPad1.webp', 'ExcelPad2.webp', 'ExcelPad3.webp', 
+					'ExcelPad4.webp', 'ExcelPad5.webp', 'ExcelPad6.webp', 
+					'ExcelPad7.webp', 'ExcelPad8.webp', 'ExcelPad9.webp', 
+					'ExcelPad10.webp', 'ExcelPad11.webp', 'ExcelPad12.webp', 
+					'ExcelPad13.webp', 'ExcelPad14.webp', 'ExcelPad15.webp'
+				],
+				description: `
+					<p>This delightful three-bedroom three-bathroom apartment is located in Royal Victoria Dock. A perfect location for your visit to London with many amenities and plenty of things to do.</p>
+					<p>The apartment is right next door to ExCeL Exhibition, 10mins ride on the Cable car will take you to the O2 Arena, 5 mins ride to City Airport London and 1 min walk to the train station. The dock is also home to many different water activities such as wake boarding, and you can even hire a jetliner water jet pack.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'free internet', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'loyalty rewards available', 'all inclusive', 'coffee maker', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'bathtub', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&output=embed'
+			},
+            {
+				id: 'ross-corner-apartment',
+				type: 'scroll', 
+				title: 'Ross Corner Apartment',
+				location: 'Seagull Lane, Greater London',
+				meta: '3 Bed • 2 Bath • 6 Guests',
+				price: '---',
+				images: [
+					'RossCorner1.webp', 'RossCorner2.webp', 'RossCorner3.webp', 
+					'RossCorner4.webp', 'RossCorner5.webp', 'RossCorner6.webp', 
+					'RossCorner7.webp', 'RossCorner8.webp', 'RossCorner9.webp', 
+					'RossCorner10.webp', 'RossCorner11.webp', 'RossCorner12.webp', 
+					'RossCorner13.webp', 'RossCorner14.webp', 'RossCorner15.webp', 
+					'RossCorner16.webp'
+				],
+				description: `
+					<p>The apartment comes with a fully furnished living room, an open plan welcoming kitchen/dining area and retains the value of peaceful living while being a min walk away to grocery shops, restaurants, bars and about 4mins walk to ExCeL Exhibition centre. Also available is a FREE unlimited internet connection for your stay throughout. Ideal for families on tourist visits to London or business groups attending the Excel centre or individuals coming to O2 for their favourite shows.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">The Space</h4>
+					<p><strong>Open Plan Living Area & Kitchen:</strong> Spacious open plan living room. The fully integrated kitchen benefits from a washer dryer, a dish washer, a fridge freezer, toaster, kettle, microwave and all your cooking utensils to make life easier for our guests! Dining space seating 5.</p>
+					<p><strong>Room 1:</strong> Master bedroom benefits from a super king size zip and link bed that can be split into 2, if guests do need their own separate beds. En suite bathroom. A wardrobe with generous space to hang up your clothes. Large mirrors. Clean bed linens and towels for each guest.</p>
+					<p><strong>Room 2:</strong> A large second bedroom with a double bed. Modern wardrobe with generous space to hang up your clothes. A balcony.</p>
+					<p><strong>Room 3:</strong> A large third bedroom with a double bed. Modern wardrobe with generous space to hang up your clothes.</p>
+					<p>All linen and towels are provided. Travel cot provided upon request.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access</h4>
+					<p>Guests have full access to the entire property, facilities are not shared with other guests. Normal check-in is from 3pm. Depending on the availability of the apartment, we are happy to accommodate an earlier check-in. Please check with us before arrival.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Interaction with Guests</h4>
+					<p>We will welcome you at check-in and give you the keys and answer any of your questions to help you feel at home. You may get in touch anytime you need any assistance.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'heating', 'late arrival', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'smart tv', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'bathtub', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Seagull+Lane,+Greater+London&t=&z=14&ie=UTF8&iwloc=&output=embed'
+			},
+            {
+				id: 'grand-vista',
+				type: 'scroll', 
+				title: 'Grand Vista',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'GrandVista1.webp', 'GrandVista2.webp', 'GrandVista3.webp', 
+					'GrandVista4.webp', 'GrandVista5.webp', 'GrandVista6.webp', 
+					'GrandVista7.webp', 'GrandVista8.webp', 'GrandVista9.webp', 
+					'GrandVista10.webp', 'GrandVista11.webp', 'GrandVista12.webp', 
+					'GrandVista13.webp', 'GrandVista14.webp', 'GrandVista15.webp', 
+					'GrandVista16.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'iron', 'late arrival', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'smart tv', 'room with a view', 'wheelchair access', 'loyalty rewards available', 'coffee maker', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'bathtub', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Not allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&output=embed'
+			},
+			{
+				id: 'cosy-corner',
+				type: 'scroll', 
+				title: 'Cosy Corner',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'CosyCorner1.webp', 'CosyCorner2.webp', 'CosyCorner3.webp', 
+					'CosyCorner4.webp', 'CosyCorner5.webp', 'CosyCorner6.webp', 
+					'CosyCorner7.webp', 'CosyCorner8.webp', 'CosyCorner9.webp', 
+					'CosyCorner10.webp', 'CosyCorner11.webp', 'CosyCorner12.webp', 
+					'CosyCorner13.webp', 'CosyCorner14.webp', 'CosyCorner15.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'iron board', 'credit cards accepted', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'room with a view', 'loyalty rewards available', 'all inclusive', 'coffee maker', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'bathtub', 'washing machine', 'shower', 'terrace', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},
+            {
+				id: 'koks-mews',
+				type: 'scroll', 
+				title: 'Koks Mews',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'KoksMews1.webp', 'KoksMews2.webp', 'KoksMews3.webp', 
+					'KoksMews4.webp', 'KoksMews5.webp', 'KoksMews6.webp', 
+					'KoksMews7.webp', 'KoksMews8.webp', 'KoksMews9.webp', 
+					'KoksMews10.webp', 'KoksMews11.webp', 'KoksMews12.webp', 
+					'KoksMews13.webp', 'KoksMews14.webp', 'KoksMews15.webp', 
+					'KoksMews16.webp', 'KoksMews17.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'iron', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'television', 'washer', 'beachfront', 'late check out', 'room with a view', 'wheelchair access', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'water view', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Koks+Mews,+Western+Gateway,+Greater+London&output=embed'
+			},
+			{
+				id: 'stylish-apartment',
+				type: 'scroll', 
+				title: 'Stylish Apartment',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'StylishApartment1.webp', 'StylishApartment2.webp', 'StylishApartment3.webp', 
+					'StylishApartment4.webp', 'StylishApartment5.webp', 'StylishApartment6.webp', 
+					'StylishApartment7.webp', 'StylishApartment8.webp', 'StylishApartment9.webp', 
+					'StylishApartment10.webp', 'StylishApartment11.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'washer', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'smoke alarms', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Stylish+Flat+Close+to+ExCel+Center,+Western+Gateway,+Greater+London&output=embed'
+			},
+			{
+				id: 'sky-view',
+				type: 'scroll', 
+				title: 'Sky View',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'SkyView1.webp', 'SkyView2.webp', 'SkyView3.webp', 
+					'SkyView4.webp', 'SkyView5.webp', 'SkyView6.webp', 
+					'SkyView7.webp', 'SkyView8.webp', 'SkyView9.webp', 
+					'SkyView10.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'hangers', 'heating', 'housekeeping', 'iron', 'late arrival', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'television', 'washer', 'early arrival', 'room with a view', 'wheelchair access', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'lift', 'microwave', 'smoke alarms', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&output=embed'
+			},
+			{
+				id: 'hide-out',
+				type: 'scroll', 
+				title: 'Hide Out',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 1 Bath • 4 Guests',
+				price: '---',
+				images: [
+					'HideOut1.webp', 'HideOut2.webp', 'HideOut3.webp', 
+					'HideOut4.webp', 'HideOut5.webp', 'HideOut6.webp', 
+					'HideOut7.webp', 'HideOut8.webp', 'HideOut9.webp', 
+					'HideOut10.webp'
+				],
+				description: `
+					<p>This fantastic two-bedroom one-bathroom apartment is located in Royal Victoria Dock. A perfect location for your visit to London with many amenities and plenty of things to do. The apartment is right next door to ExCeL Exhibition, 10mins ride on the Cable car will take you to the O2 Arena, 5 mins ride to City Airport London and 1 min walk to the train station. The dock is also home to many different water activities such as wake boarding, and you can even hire a jetliner water jet pack.</p>
+					<p>The apartment comes with a fully furnished living room, an open plan welcoming kitchen/dining area and retains the value of peaceful living while being a min walk away to grocery shops, restaurants, bars and about 4mins walk proximity to ExCeL Exhibition centre. Also available is a FREE unlimited internet connection for your stay throughout. Ideal for families on tourist visits to London or business groups attending the Excel centre or individuals coming to O2 for their favourite shows.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">The Space</h4>
+					<p><strong>Open Plan Living Area & Kitchen:</strong> Spacious open plan living room. The fully integrated kitchen benefits from a washer dryer, a dish washer, a fridge freezer, toaster, kettle, microwave and all your cooking utensils to make life easier for our guests! Dining space seating 5. Beautiful view from the living room balcony.</p>
+					<p><strong>Room 1:</strong> Master bedroom benefits from a super king size zip and link bed that can be split into 2, if guests do need their own separate beds. A Smart Television in this bedroom. En suite bathroom. A wardrobe with generous space to hang up your clothes. Large mirrors. Clean bed linens and towels for each guest.</p>
+					<p><strong>Room 2:</strong> A large second bedroom with a double bed. Modern wardrobe with generous space to hang up your clothes.</p>
+					<p>All linen and towels are provided. Travel cot provided upon request.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access</h4>
+					<p>Guests have full access to the entire property, facilities are not shared with other guests. Normal check-in is from 3pm. Depending on the availability of the apartment, we are happy to accommodate an earlier check-in. Please check with us before arrival.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Interaction with Guests</h4>
+					<p>We will welcome you at check-in and give you the keys and answer any of your questions to help you feel at home. You may get in touch anytime you need any assistance.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'loyalty rewards available', 'all inclusive', 'coffee maker', 'dishwasher', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'bathtub', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&output=embed'
+			},
+			{
+				id: 'waterside-bliss',
+				type: 'scroll', 
+				title: 'Waterside Bliss',
+				location: 'Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'WatersideBliss1.webp', 'WatersideBliss2.webp', 'WatersideBliss3.webp', 
+					'WatersideBliss4.webp', 'WatersideBliss5.webp', 'WatersideBliss6.webp', 
+					'WatersideBliss7.webp', 'WatersideBliss8.webp', 'WatersideBliss9.webp', 
+					'WatersideBliss10.webp', 'WatersideBliss11.webp', 'WatersideBliss12.webp', 
+					'WatersideBliss13.webp', 'WatersideBliss14.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'stairs elevator', 'television', 'washer', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'water view', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Seagull+Lane,+Greater+London&t=&z=13&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'tiffany-luxe',
+				type: 'scroll', 
+				title: 'Tiffany Luxe',
+				location: '18 Western Gateway, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'TiffanyLuxe1.webp', 'TiffanyLuxe2.webp', 'TiffanyLuxe3.webp', 
+					'TiffanyLuxe4.webp', 'TiffanyLuxe5.webp', 'TiffanyLuxe6.webp', 
+					'TiffanyLuxe7.webp', 'TiffanyLuxe8.webp', 'TiffanyLuxe9.webp', 
+					'TiffanyLuxe10.webp', 'TiffanyLuxe11.webp'
+				],
+				description: `
+					<p>Welcome to this delightful and fully furnished two-bedroom, two-bathroom apartment situated in the sought-after Royal Victoria Dock, E16. Perfectly positioned for both business and leisure travellers, this stylish residence offers modern comfort, excellent amenities, and unrivalled access to London's key attractions and transport links.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Exceptional Location</h4>
+					<p>Nestled right next to the ExCeL Exhibition Centre, the apartment is just a 1-minute walk from Royal Victoria DLR Station, offering quick and easy access to Central London. Take a scenic 10-minute ride on the Emirates Cable Car to the O2 Arena, reach London City Airport in under 5 minutes by DLR, and enjoy the vibrant waterside atmosphere filled with cafes, restaurants, and unique outdoor activities like wakeboarding and jet-propelled water sports.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Spacious & Well-Appointed Interiors</h4>
+					<p>This charming apartment provides both privacy and flexibility. All rooms are thoughtfully decorated and fully furnished to a high standard, ideal for short or extended stays. The master bedroom features a luxurious super king-size zip-and-link bed and a private en-suite bathroom with a modern shower cubicle. The second bedroom boasts a king-size bed, complete with bedside tables, ambient lighting, and a wardrobe. High-quality linens and fresh towels are provided for each guest. The apartment can comfortably accommodate up to five guests.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Living & Dining Area</h4>
+					<p>The open-plan living space is bright and airy, enhanced by floor-to-ceiling glass doors that lead to a private balcony. Furnished with a large four-seater sofa, a three-seater sofa, and a love seat, the living room is ideal for relaxing or entertaining. A flat-screen TV with Freeview channels and unlimited high-speed Wi-Fi ensures entertainment and connectivity throughout your stay.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Modern Fully Equipped Kitchen</h4>
+					<p>Guests will appreciate the fully integrated kitchen, complete with a washer-dryer, dishwasher, fridge-freezer, microwave, kettle, toaster, oven, and all essential cooking utensils—ideal for preparing meals at your convenience.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Guest Access & Services</h4>
+					<p>Guests have full access to the entire apartment. A meet-and-greet check-in is provided, and a pick-up/drop-off service can be arranged at an additional cost—please contact us directly for more details.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Additional Information</h4>
+					<p>Nearest Station: Royal Victoria (0.14 miles)<br>
+					Nearest Tube Station: Canning Town (0.61 miles)<br>
+					Nearest Stadium: West Ham Stadium (1.78 miles)<br>
+					Coach Station: Stratford (2.53 miles)<br>
+					Airport: London City Airport (1.27 miles)</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Local Highlights</h4>
+					<p>Royal Victoria is a highly desirable area, known for its safety, tranquillity, and excellent connectivity. It is home to London's largest urban beach and hosts exciting summer events. The iconic Emirates Cable Car offers a stunning aerial journey across the Thames to the O2 Arena—an unforgettable way to travel in the city.</p>
+
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Policies & Fees</h4>
+					<p>Late check-in is available for an additional fee of £40. Photo ID is required upon check-in. All special requests are subject to availability and may incur additional charges.</p>
+				`,
+				amenities: [
+					'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Not allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Seagull+Lane,+Greater+London&output=embed'
+			},
+			{
+				id: 'r-w-linear-house',
+				type: 'scroll', 
+				title: 'R. W. Linear House',
+				location: 'Schooner Road, Greater London',
+				meta: '2 Bed • 2 Bath • 5 Guests',
+				price: '---',
+				images: [
+					'RWLinearHouse1.webp', 'RWLinearHouse2.webp', 'RWLinearHouse3.webp', 
+					'RWLinearHouse4.webp', 'RWLinearHouse5.webp', 'RWLinearHouse6.webp', 
+					'RWLinearHouse7.webp', 'RWLinearHouse8.webp', 'RWLinearHouse9.webp', 
+					'RWLinearHouse10.webp'
+				],
+				description: `
+					<p>Our Royal Wharf apartment is not only brand new but the whole area as well is brand new. The apartment is strategically positioned being a few mins away from City Airport, London. 5 mins walk away from the Pontoon dock DLR station and 0.60 miles from the ExCeL Exhibition Centre. The newly regenerated area is a very safe neighbourhood with few shops around including a grocery shop which is 1 min away from your apartment.</p>
+					<p>Each apartment is finished to a high standard with engineered oak wooden flooring to the kitchens, living spaces and entrance hall, luxurious carpets to the bedrooms and tiling with stylish colour-ways to the bathrooms, while fully integrated open plan kitchens and floor to ceiling windows lend a feeling of light and space. Open plan living and dining areas make for great spaces to entertain whilst benefiting from living on one level.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'housekeeping', 'iron', 'non smoking', 'paid parking', 'shampoo', 'shuttle', 'smart tv', 'stairs elevator', 'television', 'washer', 'loyalty rewards available', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Not allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Schooner+Road,+Greater+London&output=embed'
+			},
+			{
+				id: 'chizzy',
+				type: 'scroll', 
+				title: 'Chizzy',
+				location: 'Western Gateway, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'Chizzy1.webp', 'Chizzy2.webp', 'Chizzy3.webp', 
+					'Chizzy4.webp', 'Chizzy5.webp', 'Chizzy6.webp', 
+					'Chizzy7.webp', 'Chizzy8.webp', 'Chizzy9.webp', 
+					'Chizzy10.webp'
+				],
+				description: `
+					<p>This elegantly appointed one-bedroom apartment is situated in the heart of Royal Victoria, E16—an exceptional location for both short and extended stays in London. Nestled adjacent to the renowned ExCeL Exhibition Centre, this residence offers seamless access to key destinations: just a 10-minute cable car journey to the iconic O2 Arena, 5 minutes to London City Airport, and a mere one-minute walk to the nearest DLR station.</p>
+					<p>Set within the vibrant Royal Docks area, guests can enjoy an array of waterside activities, from wakeboarding to the thrilling experience of a water-propelled jetpack. The neighbourhood itself offers a dynamic blend of modern living, leisure, and convenience, with shops, cafes, and restaurants all within easy walking distance.</p>
+					<p>The apartment features a spacious double bedroom with ample built-in storage, comfortably accommodating up to three guests. The open-plan living area is bright and inviting, enhanced by floor-to-ceiling windows that flood the space with natural light and offer scenic views of the surrounding docklands.</p>
+					<p>Guests will enjoy unlimited high-speed wireless internet access throughout their stay. The contemporary kitchen is fully equipped with modern appliances including a washing machine, oven, microwave, toaster, and all essential cookware—perfect for preparing meals in a homely, relaxed setting.</p>
+					<p>Whether you're visiting for business or leisure, this stylish apartment provides a serene and comfortable retreat in one of London’s most exciting waterfront neighbourhoods.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'loyalty rewards available', 'all inclusive', 'coffee maker', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&output=embed'
+			},
+            {
+				id: 'bijou-delight',
+				type: 'scroll', 
+				title: 'Bijou Delight',
+				location: 'Western Gateway, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'BijouDelight1.webp', 'BijouDelight2.webp', 'BijouDelight3.webp', 
+					'BijouDelight4.webp', 'BijouDelight5.webp', 'BijouDelight6.webp', 
+					'BijouDelight7.webp', 'BijouDelight8.webp', 'BijouDelight9.webp', 
+					'BijouDelight10.webp'
+				],
+				description: `
+					<p>This elegantly appointed one-bedroom apartment is situated in the heart of Royal Victoria, E16—an exceptional location for both short and extended stays in London. Nestled adjacent to the renowned ExCeL Exhibition Centre, this residence offers seamless access to key destinations: just a 10-minute cable car journey to the iconic O2 Arena, 5 minutes to London City Airport, and a mere one-minute walk to the nearest DLR station.</p>
+					<p>Set within the vibrant Royal Docks area, guests can enjoy an array of waterside activities, from wakeboarding to the thrilling experience of a water-propelled jetpack. The neighbourhood itself offers a dynamic blend of modern living, leisure, and convenience, with shops, cafes, and restaurants all within easy walking distance.</p>
+					<p>The apartment features a spacious double bedroom with ample built-in storage, comfortably accommodating up to three guests. The open-plan living area is bright and inviting, enhanced by floor-to-ceiling windows that flood the space with natural light and offer scenic views of the surrounding docklands.</p>
+					<p>Guests will enjoy unlimited high-speed wireless internet access throughout their stay. The contemporary kitchen is fully equipped with modern appliances including a washing machine, oven, microwave, toaster, and all essential cookware—perfect for preparing meals in a homely, relaxed setting.</p>
+					<p>Whether you're visiting for business or leisure, this stylish apartment provides a serene and comfortable retreat in one of London’s most exciting waterfront neighbourhoods.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'iron', 'late arrival', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'stairs elevator', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'bathtub', 'washing machine', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&output=embed'
+			},
+			{
+				id: 'crowne-views',
+				type: 'scroll', 
+				title: 'Crowne Views',
+				location: 'Western Gateway, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'CrowneViews1.webp', 'CrowneViews2.webp', 'CrowneViews3.webp', 
+					'CrowneViews4.webp', 'CrowneViews5.webp', 'CrowneViews6.webp', 
+					'CrowneViews7.webp', 'CrowneViews8.webp', 'CrowneViews9.webp', 
+					'CrowneViews10.webp'
+				],
+				description: `
+					<p>This elegantly appointed one-bedroom apartment is situated in the heart of Royal Victoria, E16—an exceptional location for both short and extended stays in London. Nestled adjacent to the renowned ExCeL Exhibition Centre, this residence offers seamless access to key destinations: just a 10-minute cable car journey to the iconic O2 Arena, 5 minutes to London City Airport, and a mere one-minute walk to the nearest DLR station.</p>
+					<p>Set within the vibrant Royal Docks area, guests can enjoy an array of waterside activities, from wakeboarding to the thrilling experience of a water-propelled jetpack. The neighbourhood itself offers a dynamic blend of modern living, leisure, and convenience, with shops, cafes, and restaurants all within easy walking distance.</p>
+					<p>The apartment features a spacious double bedroom with ample built-in storage, comfortably accommodating up to three guests. The open-plan living area is bright and inviting, enhanced by floor-to-ceiling windows that flood the space with natural light and offer scenic views of the surrounding docklands.</p>
+					<p>Guests will enjoy unlimited high-speed wireless internet access throughout their stay. The contemporary kitchen is fully equipped with modern appliances including a washing machine, oven, microwave, toaster, and all essential cookware—perfect for preparing meals in a homely, relaxed setting.</p>
+					<p>Whether you're visiting for business or leisure, this stylish apartment provides a serene and comfortable retreat in one of London’s most exciting waterfront neighbourhoods.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'loyalty rewards available', 'all inclusive', 'coffee maker', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&t=&z=13&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'grain-store',
+				type: 'scroll', 
+				title: 'Grain Store',
+				location: 'Seagull Lane, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'GrainStore1.webp', 'GrainStore2.webp', 'GrainStore3.webp', 
+					'GrainStore4.webp', 'GrainStore5.webp', 'GrainStore6.webp', 
+					'GrainStore7.webp', 'GrainStore8.webp', 'GrainStore9.webp', 
+					'GrainStore10.webp'
+				],
+				description: `
+					<p>This elegantly appointed one-bedroom apartment is situated in the heart of Royal Victoria, E16—an exceptional location for both short and extended stays in London. Nestled adjacent to the renowned ExCeL Exhibition Centre, this residence offers seamless access to key destinations: just a 10-minute cable car journey to the iconic O2 Arena, 5 minutes to London City Airport, and a mere one-minute walk to the nearest DLR station.</p>
+					<p>Set within the vibrant Royal Docks area, guests can enjoy an array of waterside activities, from wakeboarding to the thrilling experience of a water-propelled jetpack. The neighbourhood itself offers a dynamic blend of modern living, leisure, and convenience, with shops, cafes, and restaurants all within easy walking distance.</p>
+					<p>The apartment features a spacious double bedroom with ample built-in storage, comfortably accommodating up to three guests. The open-plan living area is bright and inviting, enhanced by floor-to-ceiling windows that flood the space with natural light and offer scenic views of the surrounding docklands.</p>
+					<p>Guests will enjoy unlimited high-speed wireless internet access throughout their stay. The contemporary kitchen is fully equipped with modern appliances including a washing machine, oven, microwave, toaster, and all essential cookware—perfect for preparing meals in a homely, relaxed setting.</p>
+					<p>Whether you're visiting for business or leisure, this stylish apartment provides a serene and comfortable retreat in one of London’s most exciting waterfront neighbourhoods.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'smart tv', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'lift', 'microwave', 'oven', 'smoke alarms', 'bathtub', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Western+Gateway,+Greater+London&t=m&z=14&output=embed&iwloc=near'
+			},
+			{
+				id: 'r-w-riverscape-walk',
+				type: 'scroll', 
+				title: 'R. W. Riverscape Walk',
+				location: '7 Riverscape Walk, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'RWRiverscapeWalk1.webp', 'RWRiverscapeWalk2.webp', 'RWRiverscapeWalk3.webp', 
+					'RWRiverscapeWalk4.webp', 'RWRiverscapeWalk5.webp', 'RWRiverscapeWalk6.webp', 
+					'RWRiverscapeWalk7.webp', 'RWRiverscapeWalk8.webp', 'RWRiverscapeWalk9.webp', 
+					'RWRiverscapeWalk10.webp', 'RWRiverscapeWalk11.webp', 'RWRiverscapeWalk12.webp', 
+					'RWRiverscapeWalk13.webp', 'RWRiverscapeWalk14.webp'
+				],
+				description: `
+					<p>Our Royal Wharf apartment is not only brand new but the whole area as well is brand new. The apartment is strategically positioned being a few mins away from City Airport, London. 5 mins walk away from the Pontoon dock DLR station and 0.60 miles from the ExCeL Exhibition Centre.</p>
+					<p>The newly regenerated area is a very safe neighbourhood with few shops around including a grocery shop which is 1 min away from your apartment.</p>
+					<p>Each apartment is finished to a high standard with engineered oak wooden flooring to the kitchens, living spaces and entrance hall, luxurious carpets to the bedrooms and tiling with stylish colour-ways to the bathrooms, while fully integrated open plan kitchens and floor to ceiling windows lend a feeling of light and space. Open plan living and dining areas make for great spaces to entertain whilst benefiting from living on one level.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'non smoking', 'shampoo', 'shuttle', 'smart tv', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'washing machine', 'shower', 'bath', 'central air conditioning', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=Abram+Building+Western+Gateway,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'wembley-chic-retreat',
+				type: 'grid', 
+				title: 'Wembley Chic Retreat',
+				location: '35 Chalkhill Road, Greater London',
+				meta: '3 Bed • 2 Bath • 6 Guests',
+				price: '---',
+				images: [
+					'WembleyChicRetreat1.webp', 'WembleyChicRetreat2.webp', 'WembleyChicRetreat3.webp', 
+					'WembleyChicRetreat4.webp', 'WembleyChicRetreat5.webp', 'WembleyChicRetreat6.webp', 
+					'WembleyChicRetreat7.webp', 'WembleyChicRetreat8.webp'
+				],
+				description: `
+					<p>Enjoy sophisticated living in this executive three-bedroom apartment in Wembley, moments from Wembley Stadium, OVO Arena Wembley and London Designer Outlet, featuring complimentary WiFi, a fully equipped contemporary kitchen, elegant interiors, lift access, private check-in, and excellent transport links to Central London.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Prime Location</h4>
+					<p>Situated in Wembley, the property is ideally positioned close to a wide range of amenities and attractions. Residents will benefit from easy access to Wembley Stadium, Wembley Arena, and the popular London Designer Outlet, which offers a variety of shops, restaurants, cafés, and entertainment options. There is an Asda Supermarket 5 mins walk away for your groceries.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Transport & Connectivity</h4>
+					<p>The area is well served by excellent transport links, including Wembley Park and Wembley Central stations, providing fast and convenient connections into Central London and beyond. Local supermarkets, parks, gyms, and everyday essentials are all within easy reach, making this a highly desirable location for your stay.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'housekeeping', 'iron', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'television', 'washer', 'late check out', 'loyalty rewards available', 'all inclusive', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'bathtub', 'washing machine', 'shower', 'meals included', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Not allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=35+Chalkhill+Rd,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},			
+			{
+				id: 'wembley-crown-retreat-4',
+				type: 'grid', 
+				title: 'Wembley Crown Retreat 4',
+				location: '35 Chalkhill Road, Greater London',
+				meta: '2 Bed • 1 Bath • 4 Guests',
+				price: '---',
+				images: [
+					'WemblyCrownRetreat(4)1.webp', 'WemblyCrownRetreat(4)2.webp', 'WemblyCrownRetreat(4)3.webp', 
+					'WemblyCrownRetreat(4)4.webp', 'WemblyCrownRetreat(4)5.webp', 'WemblyCrownRetreat(4)6.webp', 
+					'WemblyCrownRetreat(4)7.webp', 'WemblyCrownRetreat(4)8.webp'
+				],
+				description: `
+					<p>Enjoy sophisticated living in this executive apartment in Wembley, moments from Wembley Stadium, OVO Arena Wembley and London Designer Outlet, featuring complimentary WiFi, a fully equipped contemporary kitchen, elegant interiors, lift access, private check-in, and excellent transport links to Central London.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Prime Location</h4>
+					<p>Situated in Wembley, the property is ideally positioned close to a wide range of amenities and attractions. Residents will benefit from easy access to Wembley Stadium, Wembley Arena, and the popular London Designer Outlet, which offers a variety of shops, restaurants, cafés, and entertainment options. There is an Asda Supermarket 5 mins walk away for your groceries.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Transport & Connectivity</h4>
+					<p>The area is well served by excellent transport links, including Wembley Park and Wembley Central stations, providing fast and convenient connections into Central London and beyond. Local supermarkets, parks, gyms, and everyday essentials are all within easy reach, making this a highly desirable location for your stay.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'television', 'loyalty rewards available', 'all inclusive', 'coffee maker', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'water view', 'washing machine', 'shower', 'bath', 'waterfront', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=35+Chalkhill+Rd,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'wembley-crown-retreat-6',
+				type: 'grid', 
+				title: 'Wembley Crown Retreat 6',
+				location: '35 Chalkhill Road, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'WemblyCrownRetreat(6)1.webp', 'WemblyCrownRetreat(6)2.webp', 'WemblyCrownRetreat(6)3.webp', 
+					'WemblyCrownRetreat(6)4.webp', 'WemblyCrownRetreat(6)5.webp', 'WemblyCrownRetreat(6)6.webp', 
+					'WemblyCrownRetreat(6)7.webp'
+				],
+				description: `
+					<p>Enjoy stylish executive living in this modern one-bedroom apartment in Wembley, perfectly located close to Wembley Stadium, OVO Arena Wembley, and the vibrant London Designer Outlet.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">The Space</h4>
+					<p>The apartment features elegant interiors, complimentary high-speed WiFi, lift access, private check-in, and a fully equipped contemporary kitchen designed for a comfortable stay. Just a 5-minute walk away, Asda Wembley Superstore makes grocery shopping quick and convenient.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Prime Location & Connectivity</h4>
+					<p>You’ll also benefit from excellent transport connections via Wembley Park Station and Wembley Central Station, providing fast and easy access to Central London. With shops, restaurants, cafés, parks, gyms, and entertainment all nearby, this apartment offers the perfect balance of comfort, convenience, and vibrant city living.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'housekeeping', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'smart tv', 'television', 'loyalty rewards available', 'all inclusive', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'bathtub', 'washing machine', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Not allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=35+Chalkhill+Rd,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'wembley-crown-retreat-5',
+				type: 'grid', 
+				title: 'Wembley Crown Retreat 5',
+				location: '35 Chalkhill Road, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'WemblyCrownRetreat(5)1.webp', 'WemblyCrownRetreat(5)2.webp', 'WemblyCrownRetreat(5)3.webp', 
+					'WemblyCrownRetreat(5)4.webp', 'WemblyCrownRetreat(5)5.webp', 'WemblyCrownRetreat(5)6.webp', 
+					'WemblyCrownRetreat(5)7.webp'
+				],
+				description: `
+					<p>Enjoy sophisticated living in this executive studio apartment in Wembley, moments from Wembley Stadium, OVO Arena Wembley and London Designer Outlet, featuring complimentary WiFi, a fully equipped contemporary kitchen, elegant interiors, lift access, private check-in, and excellent transport links to Central London.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Prime Location</h4>
+					<p>Situated in Wembley, the property is ideally positioned close to a wide range of amenities and attractions. Residents will benefit from easy access to Wembley Stadium, Wembley Arena, and the popular London Designer Outlet, which offers a variety of shops, restaurants, cafés, and entertainment options. There is an Asda Supermarket 5 mins walk away for your groceries.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Transport & Connectivity</h4>
+					<p>The area is well served by excellent transport links, including Wembley Park and Wembley Central stations, providing fast and convenient connections into Central London and beyond. Local supermarkets, parks, gyms, and everyday essentials are all within easy reach, making this a highly desirable location for your stay.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'television', 'washer', 'loyalty rewards available', 'all inclusive', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=35+Chalkhill+Rd,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'wembley-crown-retreat-3',
+				type: 'grid', 
+				title: 'Wembley Crown Retreat 3',
+				location: '35 Chalkhill Road, Greater London',
+				meta: '1 Bed • 1 Bath • 2 Guests',
+				price: '---',
+				images: [
+					'WemblyCrownRetreat(3)1.webp', 'WemblyCrownRetreat(3)2.webp', 'WemblyCrownRetreat(3)3.webp', 
+					'WemblyCrownRetreat(3)4.webp', 'WemblyCrownRetreat(3)5.webp', 'WemblyCrownRetreat(3)6.webp', 
+					'WemblyCrownRetreat(3)7.webp'
+				],
+				description: `
+					<p>Enjoy stylish executive living in this modern one-bedroom apartment in Wembley, perfectly located close to Wembley Stadium, OVO Arena Wembley, and the vibrant London Designer Outlet.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">The Space</h4>
+					<p>The apartment features elegant interiors, complimentary high-speed WiFi, lift access, private check-in, and a fully equipped contemporary kitchen designed for a comfortable stay. Just a 5-minute walk away, Asda Wembley Superstore makes grocery shopping quick and convenient.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Connectivity & Lifestyle</h4>
+					<p>You’ll also benefit from excellent transport connections via Wembley Park Station and Wembley Central Station, providing fast and easy access to Central London. With shops, restaurants, cafés, parks, gyms, and entertainment all nearby, this apartment offers the perfect balance of comfort, convenience, and vibrant city living.</p>
+				`,
+				amenities: [
+					'free wifi', 'freezer', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'housekeeping', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=35+Chalkhill+Rd,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			},
+			{
+				id: 'wembley-crown-retreat-2',
+				type: 'grid', 
+				title: 'Wembley Crown Retreat 2',
+				location: '35 Chalkhill Road, Greater London',
+				meta: '1 Bed • 1 Bath • 3 Guests',
+				price: '---',
+				images: [
+					'WemblyCrownRetreat(2)1.webp', 'WemblyCrownRetreat(2)2.webp', 'WemblyCrownRetreat(2)3.webp', 
+					'WemblyCrownRetreat(2)4.webp', 'WemblyCrownRetreat(2)5.webp', 'WemblyCrownRetreat(2)6.webp', 
+					'WemblyCrownRetreat(2)7.webp', 'WemblyCrownRetreat(2)8.webp', 'WemblyCrownRetreat(2)9.webp'
+				],
+				description: `
+					<p>Enjoy stylish executive living in this modern one-bedroom apartment in Wembley, perfectly located close to Wembley Stadium, OVO Arena Wembley, and the vibrant London Designer Outlet.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">The Space</h4>
+					<p>The apartment features elegant interiors, complimentary high-speed WiFi, lift access, private check-in, and a fully equipped contemporary kitchen designed for a comfortable stay. Just a 5-minute walk away, Asda Wembley Superstore makes grocery shopping quick and convenient.</p>
+					
+					<h4 style="margin: 16px 0 8px; font-size: 15px; color: #171b4d;">Connectivity & Lifestyle</h4>
+					<p>You’ll also benefit from excellent transport connections via Wembley Park Station and Wembley Central Station, providing fast and easy access to Central London. With shops, restaurants, cafés, parks, gyms, and entertainment all nearby, this apartment offers the perfect balance of comfort, convenience, and vibrant city living.</p>
+				`,
+				amenities: [
+					'free wifi', 'hair-dryer', 'iron board', 'credit cards accepted', 'dryer', 'free internet', 'hangers', 'heating', 'housekeeping', 'non smoking', 'paid parking', 'parking available', 'shampoo', 'shuttle', 'smart tv', 'television', 'washer', 'room with a view', 'loyalty rewards available', 'all inclusive', 'dishwasher', 'fridge', 'inperson checkin', 'lift', 'microwave', 'oven', 'smoke alarms', 'sofa bed', 'water view', 'bathtub', 'washing machine', 'shower', 'bath', 'On-Site Greeters Upon Arrival', 'Premium Toiletries, Plush Towels & Fine Linen', 'Specialized Professional Cleaning', 'High-Speed WiFi', '24/7 Customer Support', 'Fully Equipped Kitchen', 'Comfortable Furnishings', 'Complimentary Beverages'
+				],
+				rules: [
+					'Pets Not allowed', 'Smoking Not allowed', 'Events Not allowed', 'Children Allowed'
+				],
+				mapEmbedUrl: 'https://maps.google.com/maps?q=35+Chalkhill+Rd,+Greater+London&t=&z=15&ie=UTF8&iwloc=&output=embed'
+			}
+
+        ];
+
+        // =========================================================
+        // 2. RENDER THE HTML ON THE PAGE
+        // =========================================================
+        const eastLondonContainer = document.getElementById('eastLondonContainer');
+        const nwLondonContainer = document.getElementById('nwLondonContainer');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const scrollProgress2 = document.getElementById('scrollProgress2');
+
+        // Clear containers in case of re-render
+        eastLondonContainer.innerHTML = '';
+        nwLondonContainer.innerHTML = '';
+        scrollProgress.innerHTML = '';
+        if(scrollProgress2) scrollProgress2.innerHTML = '';
+
+        let eastCount = 0;
+        let nwCount = 0;
+
+        propertyDatabase.forEach((prop) => {
+            // Generate Slider Images
+            const sliderHTML = prop.images.map((img, i) => 
+                `<img src="${img}" ${i === 0 ? 'class="active"' : 'loading="lazy"'} alt="${prop.title}">`
+            ).join('');
+
+            // UNIVERSAL CARD HTML (Now applies to ALL properties)
+            const cardHTML = `
+                <div class="scroll-card" data-id="${prop.id}">
+                    <div class="slider">
+                        ${sliderHTML}
+                        <button class="slider-btn prev">‹</button>
+                        <button class="slider-btn next">›</button>
+                    </div>
+                    <div class="card-overlay">
+                        <h3 class="overlay-title font-serif">${prop.title}</h3>
+                        <div class="overlay-location">${prop.location}</div>
+                        <div class="overlay-meta">${prop.meta}</div>
+                        <div class="overlay-actions">
+                            <span class="btn-overlay-inquire view-details-btn">View Details</span>
+                            <a href="https://wa.me/447879991235?text=Interested in ${prop.title}" target="_blank" class="whatsapp-overlay action-btn">
+                                <svg viewBox="0 0 32 32"><path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2.1 7.7 2.1 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.7c-2.4 0-4.7-.7-6.6-2l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2-2.1-4.3-2.1-6.8 0-6.8 5.5-12.3 12.3-12.3S28.3 9.2 28.3 16 22.8 29.1 16 29.1z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Sort into Section 1
+            if (prop.type === 'scroll') {
+                eastLondonContainer.innerHTML += cardHTML;
+                scrollProgress.innerHTML += `<div class="dash-hitbox ${eastCount === 0 ? 'active' : ''}"><div class="progress-dash"></div></div>`;
+                eastCount++;
+            } 
+            // Sort into Section 2
+            else if (prop.type === 'grid') {
+                nwLondonContainer.innerHTML += cardHTML;
+                if(scrollProgress2) {
+                    scrollProgress2.innerHTML += `<div class="dash-hitbox ${nwCount === 0 ? 'active' : ''}"><div class="progress-dash"></div></div>`;
+                }
+                nwCount++;
+            }
+        });
+
+        // Navigation scroll effect & Mobile Menu (Unchanged)
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', function() { mobileMenu.classList.toggle('active'); });
+        mobileMenu.querySelectorAll('a').forEach(link => { link.addEventListener('click', function() { mobileMenu.classList.remove('active'); }); });
+
+        // Scroll Progress Logic (Upgraded to handle multiple sections independently)
+        function initScrollProgress(containerId, progressId) {
+            const container = document.getElementById(containerId);
+            const progress = document.getElementById(progressId);
+            if (!container || !progress) return;
+
+            const cards = container.querySelectorAll('.scroll-card');
+            const hitboxes = progress.querySelectorAll('.dash-hitbox');
+            
+            hitboxes.forEach((hb, index) => {
+                hb.addEventListener('click', () => {
+                    const scrollPos = cards[index].offsetLeft - container.offsetLeft;
+                    container.scrollTo({ left: scrollPos, behavior: 'smooth' });
+                });
+            });
+
+            if('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const activeIndex = Array.from(cards).indexOf(entry.target);
+                            hitboxes.forEach((hb, i) => {
+                                if (i === activeIndex) hb.classList.add('active');
+                                else hb.classList.remove('active');
+                            });
+                        }
+                    });
+                }, { root: container, threshold: 0.5 });
+                cards.forEach(card => observer.observe(card));
+            }
+        }
+
+        // Activate progress bars for both sections!
+        initScrollProgress('eastLondonContainer', 'scrollProgress');
+        initScrollProgress('nwLondonContainer', 'scrollProgress2');
+
+        // =========================================================
+        // 3. GLOBAL CLICK HANDLER (Sliders & Modal Trigger)
+        // =========================================================
+        document.addEventListener('click', function(e) {
+            
+            // --- CARD SLIDER LOGIC ---
+            if (e.target.closest('.prev') || e.target.closest('.next')) {
+                e.stopPropagation(); // Stop modal from opening
+                const btn = e.target.closest('button');
+                const slider = btn.closest('.slider');
+                const images = slider.querySelectorAll('img');
+                let activeIdx = Array.from(images).findIndex(img => img.classList.contains('active'));
+                
+                images[activeIdx].classList.remove('active');
+                if (btn.classList.contains('next')) {
+                    activeIdx = (activeIdx + 1) % images.length;
+                } else {
+                    activeIdx = (activeIdx - 1 + images.length) % images.length;
+                }
+                images[activeIdx].classList.add('active');
+                return;
+            }
+
+            // Prevent modal if clicking WhatsApp direct links
+            if (e.target.closest('.action-btn')) return; 
+
+            // --- OPEN MODAL LOGIC ---
+            const card = e.target.closest('.scroll-card') || e.target.closest('.grid-card');
+            if (card) {
+                const propId = card.getAttribute('data-id');
+                const propData = propertyDatabase.find(p => p.id === propId);
+                if(propData) populateAndOpenModal(propData);
+            }
+        });
+
+		// =========================================================
+        // 4. MODAL POPULATION & CONTROL LOGIC
+        // =========================================================
+        const modal = document.getElementById('propertyModal');
+        const modalMainImg = document.getElementById('modalMainImg');
+        const modalThumbnails = document.getElementById('modalThumbnails');
+        
+        let currentModalImages = [];
+        let currentModalIndex = 0;
+
+        function populateAndOpenModal(data) {
+            document.getElementById('modalTitle').textContent = data.title;
+            document.getElementById('modalMeta').textContent = data.meta;
+            document.getElementById('modalLocation').textContent = data.location;
+            document.getElementById('modalPrice').textContent = data.price;
+            document.getElementById('modalDescription').innerHTML = data.description;
+            
+            const amenitiesContainer = document.getElementById('modalAmenities');
+            if(data.amenities && data.amenities.length > 0) {
+                amenitiesContainer.innerHTML = data.amenities.map(a => `<li>${a}</li>`).join('');
+                amenitiesContainer.parentElement.style.display = 'block';
+            } else {
+                amenitiesContainer.parentElement.style.display = 'none';
+            }
+
+            const rulesContainer = document.getElementById('modalRules');
+            if(data.rules && data.rules.length > 0) {
+                rulesContainer.innerHTML = data.rules.map(r => `<li>${r}</li>`).join('');
+                rulesContainer.parentElement.style.display = 'block';
+            } else {
+                rulesContainer.parentElement.style.display = 'none';
+            }
+
+            const mapContainer = document.getElementById('modalMapSection');
+            if (data.mapEmbedUrl) {
+                mapContainer.style.display = 'block';
+                document.getElementById('modalMap').innerHTML = `<iframe src="${data.mapEmbedUrl}" allowfullscreen="" loading="lazy"></iframe>`;
+            } else {
+                mapContainer.style.display = 'none';
+            }
+
+            document.getElementById('modalEnquireBtn').href = `https://wa.me/447879991235?text=I am interested in booking ${data.title}`;
+
+            // Image Setup
+            if(data.images && data.images.length > 0) {
+                currentModalImages = data.images;
+                currentModalIndex = 0;
+                modalThumbnails.innerHTML = data.images.map((img, idx) => 
+                    `<img src="${img}" class="modal-thumb ${idx === 0 ? 'active' : ''}" onclick="changeModalImage(${idx})">`
+                ).join('');
+                updateModalImageDisplay();
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Arrow Navigation Logic
+        document.getElementById('modalNext').addEventListener('click', () => {
+            if(currentModalImages.length > 0) {
+                currentModalIndex = (currentModalIndex + 1) % currentModalImages.length;
+                updateModalImageDisplay();
+            }
+        });
+
+        document.getElementById('modalPrev').addEventListener('click', () => {
+            if(currentModalImages.length > 0) {
+                currentModalIndex = (currentModalIndex - 1 + currentModalImages.length) % currentModalImages.length;
+                updateModalImageDisplay();
+            }
+        });
+
+        // Click on thumbnail logic
+        window.changeModalImage = function(index) {
+            currentModalIndex = index;
+            updateModalImageDisplay();
+        };
+
+        // Core visual update function
+        function updateModalImageDisplay() {
+            modalMainImg.src = currentModalImages[currentModalIndex];
+            const thumbs = document.querySelectorAll('.modal-thumb');
+            thumbs.forEach((t, idx) => {
+                if (idx === currentModalIndex) {
+                    t.classList.add('active');
+                    // Automatically scroll the thumbnail list to keep the active one in view
+                    t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('modalMap').innerHTML = ''; 
+        }
+
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

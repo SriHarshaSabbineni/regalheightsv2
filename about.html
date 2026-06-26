@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Regal Heights - A luxury stays and property Introductions firm with 10+ years of experience serving 500+ global clients. Specializing in London, Dubai, and international properties.">
+    <meta name="keywords" content="luxury property introductions, Regal Heights, about us, property expertise, London, Dubai, global real estate">
+    <meta name="author" content="Regal Heights">
+    <meta property="og:title" content="About Regal Heights - Luxury Stays and Property Introductions">
+    <meta property="og:description" content="Learn about our 10+ years of expertise in luxury stays and property introductions across London, Dubai, and global markets.">
+    <meta property="og:type" content="website">
+    <title>About Regal Heights | Luxury Stays and Property Introductions Firm</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Updated Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --black: #171b4d; /* Midnight Navy */
+            --white: #ffffff;
+            --off-white: #f2f2f2; /* Light Gray */
+            --text-gray: #4a4a4a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--off-white);
+            color: var(--black);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            padding: 24px 0;
+        }
+        
+        nav.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-box {
+            width: 40px;
+            height: 40px;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 18px;
+            line-height: 1;
+        }
+        
+        .logo-sub {
+            font-size: 8px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-top: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+        
+        .nav-item {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--black);
+            transition: color 0.3s;
+        }
+        
+        .nav-item:hover {
+            color: var(--gold);
+        }
+        
+        .btn-inquire {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 24px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-left: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-inquire:hover {
+            background: var(--gold);
+        }
+        
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* Main Content */
+        .content-section {
+            padding: 48px 24px;
+            background: var(--white);
+        }
+        
+        .content-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .section-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: block;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        
+        .section-text {
+            color: var(--text-gray);
+            font-weight: 300;
+            font-size: 1.125rem;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .section-text p {
+            line-height: 1.8;
+        }
+        
+        .section-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+        }
+        
+        /* Values Section */
+        .values-section {
+            padding: 96px 24px;
+            background: var(--white);
+        }
+        
+        .values-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .values-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        /* About Section */
+        .about {
+            padding: 96px 24px;
+            background: #0F1235;
+            color: var(--white);
+        }
+        
+        .about-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        @media (min-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .about-label {
+            font-size: 10px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: block;
+        }
+        
+        .about-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        
+        .about-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            font-size: 1.125rem;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .about-visuals {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .about-stat {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 24px;
+        }
+        
+        .about-stat.gold {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+        
+        .stat-num {
+            display: block;
+            font-size: 30px;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+		/* --- TEAM SECTION LAYOUT --- */
+		.team-card-premium {
+			display: grid;
+			grid-template-columns: 1fr;
+			background: var(--white);
+			border: 1px solid #e5e7eb;
+			max-width: 900px; /* Constrains the entire card from filling the screen */
+			margin: 0 auto; 
+			overflow: hidden;
+		}
+
+		@media (min-width: 768px) {
+			.team-card-premium {
+				grid-template-columns: 350px 1fr; /* Locks the founder image to exactly 350px wide */
+			}
+		}
+
+		.team-image-square {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+			aspect-ratio: 1 / 1; /* Forces the perfect square */
+		}
+
+		/* Restored Link Formatting */
+		.card-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			font-size: 10px;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			font-weight: 700;
+			text-decoration: none;
+			color: var(--black);
+			border-bottom: 1px solid var(--black);
+			padding-bottom: 4px;
+			transition: all 0.3s ease;
+		}
+
+		.card-link:hover {
+			color: var(--gold);
+			border-color: var(--gold);
+		}
+
+		/* --- EXACT LONDON CTA MATCH --- */
+		.cta-section {
+			padding: 70px 24px;
+			text-align: center;
+			background-color: #0F1235; /* Solid Navy background based on new root var */
+		}
+
+		.cta-content {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		/* Reversed Button Logic: Gold primarily -> White/Black on hover */
+		.btn-cta {
+			display: inline-block;
+			padding: 16px 48px;
+			font-size: 10px;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			font-weight: 700;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			border-radius: 4px;
+			
+			/* Primary State: Gold Background, White Text */
+			background: var(--gold) !important;
+			color: var(--white) !important;
+			border: 1px solid var(--gold);
+		}
+
+		.btn-cta:hover {
+			/* Hover State: White Background, Navy Text */
+			background: var(--white) !important;
+			color: var(--black) !important;
+			border-color: var(--white) !important;
+		}
+
+        /* Footer */
+        footer {
+            padding: 80px 24px;
+            background: var(--white);
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer-logo {
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-link {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .footer-link:hover {
+            color: var(--black);
+        }
+        
+        .copyright {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--text-gray);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 88px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 999;
+            padding: 32px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            padding: 20px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background: var(--gold);
+        }
+		/* --- SPACING OVERHAUL --- */
+		.stats-section, .values-section, .team-section, .features, .blog-section, .about, .contact, .listings-section {
+			padding: 48px 24px;
+		}
+
+		.page-header {
+			padding-top: 120px;
+			padding-bottom: 64px;
+		}
+
+		/* --- SOCIAL & FLOATING CHAT CSS --- */
+		.social-links {
+			display: flex;
+			justify-content: center;
+			gap: 24px;
+			margin-bottom: 32px;
+		}
+
+		.social-icon {
+			color: var(--text-gray);
+			transition: color 0.3s, transform 0.3s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.social-icon:hover {
+			color: var(--black);
+			transform: translateY(-2px);
+		}
+		
+		/* Slightly darker, more premium brand tones */
+		.social-icon.linkedin {
+			color: #084C91; /* darker blue */
+		}
+
+		.social-icon.instagram {
+			color: #8E2C5E; /* darker pink/purple */
+		}
+
+		.social-icon.whatsapp {
+			color: #166A56; /* darker green */
+		}
+		.social-icon.facebook {
+			color: #0B3C78; /* darker Facebook blue */
+		}
+
+		.social-icon.x {
+			color: #111111; /* softer black for X */
+		}
+		
+		.social-icon.email {
+			color: #d4af37; /* Matches your brand's Gold color */
+		}
+
+		.social-icon.tiktok {
+			color: #111111; /* base dark */
+		}
+		.social-icon.tiktok svg {
+			filter: drop-shadow(1px 0 #00f2ea) drop-shadow(-1px 0 #ff0050);
+			opacity: 0.85;
+			transform: scale(1.2);
+		}
+		.social-icon:hover {
+			opacity: 0.85;
+			transform: translateY(-1px);
+		}
+
+		/* --- PROFESSIONAL CIRCULAR CHAT WIDGET --- */
+		.floating-whatsapp {
+			position: fixed;
+			bottom: 32px;
+			right: 32px;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1000;
+			text-decoration: none;
+			color: #ffffff;
+			background: linear-gradient(145deg, #25D366, #128C7E);
+			box-shadow: 0 12px 28px rgba(18, 140, 126, 0.28), inset 0 1px 0 rgba(255,255,255,0.25);
+			transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+			overflow: hidden;
+		}
+
+		.floating-whatsapp::before {
+			content: "";
+			position: absolute;
+			inset: 1px;
+			border-radius: inherit;
+			background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+			pointer-events: none;
+		}
+
+		.floating-whatsapp svg {
+			width: 28px;
+			height: 28px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.floating-whatsapp:hover {
+			transform: translateY(-2px) scale(1.12);
+			filter: saturate(1.05);
+			box-shadow: 0 16px 34px rgba(18, 140, 126, 0.36);
+		}
+
+		/* --- PREMIUM HEADER STYLES --- */
+		.page-header {
+			position: relative;
+			min-height: 60vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			padding-top: 120px;
+			padding-bottom: 64px;
+		}
+
+		.page-header-bg {
+			position: absolute;
+			inset: 0;
+			z-index: 0;
+			overflow: hidden;
+		}
+
+		.page-header-overlay {
+			position: absolute;
+			inset: 0;
+			background: rgba(23, 27, 77, 0.6); /* Navy overlay */
+			z-index: 10;
+		}
+
+		.page-header-img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  object-position: center 25%;
+		}
+		@media (max-width: 767px) {
+			.page-header-img {
+				object-position: center top; /* Forces the top part of the image to stay visible */
+			}
+		}
+
+		.page-header-content {
+			position: relative;
+			z-index: 20;
+			text-align: center;
+			color: var(--white);
+			padding: 0 24px;
+			max-width: 900px;
+		}
+
+		/* --- VALUES & QUOTE STYLES --- */
+		.values-paragraph {
+			max-width: 800px;
+			margin: 0 auto;
+			text-align: center;
+			font-size: 1.125rem;
+			font-weight: 300;
+			color: var(--text-gray);
+			line-height: 1.8;
+		}
+
+		.biblical-quote {
+			margin-top: 40px;
+			padding: 32px;
+			background: var(--off-white);
+			border-left: 2px solid var(--gold);
+			font-style: italic;
+			color: var(--black);
+		}
+
+		.quote-author {
+			display: block;
+			margin-top: 16px;
+			font-size: 10px;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			color: var(--gold);
+			font-weight: 700;
+			font-style: normal;
+		}
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+		<div class="nav-container">
+			<div class="logo-group">
+				<img src="regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+			</div>
+			<div class="nav-links">
+				<a href="index.html" class="nav-item">Home</a>
+				<a href="about.html" class="nav-item">About</a>
+				<a href="london.html" class="nav-item">London</a>
+				<a href="property-sales.html" class="nav-item">Global</a>
+				<a href="dubai.html" class="nav-item">Dubai</a>
+				<a href="index.html#contact" class="btn-inquire">Enquire</a>
+			</div>
+			<button class="menu-toggle" id="menuToggle">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+	</nav>
+
+	<div class="mobile-menu" id="mobileMenu">
+		<a href="index.html" class="nav-item">Home</a>
+		<a href="about.html" class="nav-item">About</a>
+		<a href="london.html" class="nav-item">London</a>
+		<a href="property-sales.html" class="nav-item">Global</a>
+		<a href="dubai.html" class="nav-item">Dubai</a>
+		<a href="index.html#contact" class="btn-submit" style="text-align: center;">Enquire</a>
+	</div>
+    
+    <main>
+        <!-- Page Header -->
+        <div class="page-header">
+			<div class="page-header-bg">
+				<div class="page-header-overlay"></div>
+				<img src="https://images.unsplash.com/photo-1612911853182-96e6be2792c7?auto=format&fit=crop&q=80&w=2000" alt="Regal Heights Office" class="page-header-img">
+			</div>
+			<div class="page-header-content">
+				<h1 class="page-header-title font-serif" style="font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.15; margin-bottom: 24px;">About Regal Heights</h1>
+				<p class="page-header-subtitle" style="font-weight: 300; font-size: clamp(1rem, 2vw, 1.125rem);">A legacy of excellence in luxury hospitality and global property introductions.</p>
+			</div>
+		</div>
+
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about-container">
+                <div>
+                    <span class="about-label">The Full Story</span>
+                    <h2 class="about-title font-serif">Bespoke Advisory Built on Trust.</h2>
+                    <div class="about-text">
+                        <p>Regal Heights is a multifaceted brand offering primarily luxurious short-let accommodations in the city of London. We are situated in Royal Victoria, East London, at the foot of the Excel Conference Centre.</p>
+                        <p>We host corporate professionals, business travelers, and medical tourists who value discretion, sophisticated design, and a straightforward, distinguished service that online booking platforms simply cannot replicate.</p>
+                    </div>
+                </div>
+                <div class="about-visuals">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=500" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(1);" alt="Luxury Property">
+                        <div class="about-stat gold">
+                            <span class="stat-num font-serif">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 48px;">
+                        <div class="about-stat">
+                            <span class="stat-num font-serif" style="color: white;">5000+</span>
+                            <span class="stat-label">Global Clients</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=500" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; filter: grayscale(1);" alt="Property Showcase">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+		<section class="content-section">
+			<div class="content-container">
+				<div class="section-grid">
+					<div>
+						<span class="section-label">Our Focus</span>
+						<h2 class="section-title font-serif">Excellence in Hospitality & Real Estate</h2>
+						<div class="section-text">
+							<p>Regal Heights is a multi-faceted brand offering primarily luxurious short-let accommodations in the city of London. Situated in the Royal Victoria area at the foot of the Excel Conference Centre, we host corporate, business, and leisure travellers alike.</p>
+							<p>We actively encourage booking directly with us to guarantee the most competitive rates and an unparalleled level of service. Direct communication ensures absolute flexibility, tailored fulfillment of special requests, and even real-time WhatsApp video viewings of our apartments prior to your arrival.</p>
+                            <p>Beyond our distinguished hospitality, we operate as a discreet London-based referral and introductions firm. We connect qualified UK and international buyers to prime property markets in iconic cities like London, Dubai, New York, and Paris.</p>
+						</div>
+					</div>
+					<div>
+						<img src="https://images.unsplash.com/photo-1618505497364-f97e23c8b70a?auto=format&fit=crop&q=80&w=600" alt="Premium Advisory" class="section-image">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section style="padding: 0 24px 50px 24px; background: var(--white); border-top: 1px solid #e5e7eb; text-align: center;">
+			<div style="max-width: 800px; margin: 0 auto;">
+				<p style="font-size: 0.95rem; color: var(--text-gray); font-style: italic; line-height: 1.6;">
+					Disclaimer: We are not a property sales agency and do not handle sales funds on property referrals. We facilitate access through screening and introduction to certified real estate partners for a commissionable fee.
+				</p>
+			</div>
+		</section>
+
+		<section class="values-section" style="background: var(--off-white);">
+			<div class="values-container">
+				<div class="values-header" style="margin-bottom: 40px;">
+					<span class="section-label">What We Stand For</span>
+					<h2 class="section-title font-serif">Our Values</h2>
+				</div>
+				<div class="values-paragraph">
+					<p style="margin-bottom: 32px;">We embrace innovation, continuously evolving our offerings to provide modern, stylish, and functional spaces. Integrity is at the heart of our operations, as we uphold the highest standards of professionalism, trust, and ethical practices in everything we do.</p>
+					
+					<div class="biblical-quote">
+						<p class="font-serif" style="font-size: 1.5rem; line-height: 1.4;">"But seek ye first the Kingdom of God, and His righteousness; and all these things shall be added unto you."</p>
+						<span class="quote-author">- Matthew 6:33 | KJV</span>
+					</div>
+
+					<p style="margin-top: 32px;">We believe that true luxury is rooted in honesty and a foundational commitment to serving our clients with unwavering dedication. By prioritizing ethical relationships over mere transactions, we ensure our clients always receive transparent, world-class service and introductions.</p>
+				</div>
+			</div>
+		</section>
+        
+		<section class="team-section" style="background: var(--white); padding: 96px 24px;">
+			<div class="team-container" style="max-width: 1000px; margin: 0 auto;">
+				<div class="team-header" style="margin-bottom: 48px; text-align: center;">
+					<span class="section-label">Leadership</span>
+					<h2 class="section-title font-serif">Meet the Founder</h2>
+				</div>
+				
+				<div class="team-card-premium">
+					<img src="uzoma1.png" alt="Uzoma Okeke" class="team-image-square">
+					
+					<div style="padding: 48px; display: flex; flex-direction: column; justify-content: center;">
+						<div class="member-name" style="font-size: 28px; font-weight: 600; margin-bottom: 8px; color: var(--black);">Uzoma Okeke</div>
+						<div class="member-role" style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px;">Founder & Director</div>
+						
+						<p class="member-bio" style="font-size: 16px; color: var(--text-gray); line-height: 1.8; margin-bottom: 32px;">
+							Leading Regal Heights with a commitment to integrity, exceptional hospitality, and high-end property introductions. With extensive experience bridging international markets, Uzoma connects discerning global clients to prime real estate opportunities and luxury accommodations across London and the world.
+						</p>
+						
+						<div>
+							<a href="https://www.linkedin.com/in/uzoma-okeke-b7070b8b/" target="_blank" class="card-link">View LinkedIn Profile →</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-section" id="cta">
+			<div class="cta-content">
+				<span class="section-label" style="color: var(--gold); margin-bottom: 16px;">Begin Your Journey</span>
+				
+				<h2 class="cta-title font-serif" style="color: var(--white); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; margin-bottom: 24px;">Ready to Find Your Perfect Property?</h2>
+				
+				<p class="cta-text" style="color: rgba(255, 255, 255, 0.9); font-size: 1.125rem; margin-bottom: 40px; font-weight: 300;">
+					Let our team of experts guide you through your luxury property aquisition/ referral/ short stay accommodation journey with absolute discretion, confidentiality and care.
+				</p>
+				
+				<a href="index.html#contact" class="btn-cta">Get In Touch</a>
+			</div>
+		</section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+		<div class="footer-logo">
+			<img src="regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+		</div>
+		
+		<div class="footer-links">
+			<a href="terms.html" class="footer-link">Terms</a>
+			<a href="privacy.html" class="footer-link">Privacy</a>
+			<a href="london.html" class="footer-link">London Stays</a>
+			<a href="#" class="footer-link">Global Properties</a>
+			<a href="index.html#contact" class="footer-link">Contact</a>
+		</div>
+		
+		<div class="social-links">
+			<a href="https://www.linkedin.com/company/regal-heights-consultancy/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+			</a>
+			<a href="https://instagram.com/regalheightsworld" target="_blank" class="social-icon instagram" aria-label="Instagram">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+			</a>
+			<a href="https://wa.me/447879991235" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+			</a>
+			<a href="mailto:info@regalheights.co.uk" class="social-icon email" aria-label="Email">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon facebook" aria-label="Facebook">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon x" aria-label="X">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+					<path d="M18.244 2H21.5l-7.45 8.51L23 22h-6.83l-5.35-7.02L4.5 22H1.244l7.97-9.11L1 2h6.92l4.84 6.41L18.244 2zm-1.2 18h1.9L7.1 3.9H5.06L17.044 20z"/>
+				</svg>
+			</a>
+			<a href="#" target="_blank" class="social-icon tiktok" aria-label="TikTok">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+					<path d="M14 3v10a4 4 0 1 1-4-4"/>
+					<path d="M14 3c1.5 2 3.5 3 6 3"/>
+				</svg>
+			</a>
+		</div>
+
+		<p class="copyright">© 2026 Regal Heights • London • UK, All Rights Reserved.</p>
+	</footer>
+		<a href="https://wa.me/447879991235" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+			<svg viewBox="0 0 32 32" fill="currentColor">
+				<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2.1 7.7 2.1 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.7c-2.4 0-4.7-.7-6.6-2l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2-2.1-4.3-2.1-6.8 0-6.8 5.5-12.3 12.3-12.3S28.3 9.2 28.3 16 22.8 29.1 16 29.1zm6.7-9.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.7-.2-1 .2s-1.1 1.2-1.3 1.4-.5.3-.9.1c-.4-.2-1.8-.7-3.4-2.2-1.3-1.1-2.2-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-1-2.4-1.3-3.3-.3-.8-.6-.7-1-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.6-1.7.3-.8.3-1.5.2-1.7-.1-.2-.4-.3-.8-.5z"/>
+			</svg>
+		</a>
+    
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when a link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
