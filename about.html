@@ -622,10 +622,11 @@
 		  object-position: center 25%;
 		}
 		@media (max-width: 767px) {
-			.page-header-img {
-				object-position: center top !important; /* Forces the top part of the image to stay visible */
-			}
-		}
+            .page-header-img {
+                height: 150% !important; /* Forces the image to extend 50% below the container */
+                object-position: center top !important; /* Pins the absolute top of the sky to the top edge */
+            }
+        }
 
 		.page-header-content {
 			position: relative;
