@@ -38,8 +38,31 @@
         @media (min-width: 768px) { .menu-toggle { display: none; } }
         
         /* Mobile Menu */
-        .mobile-menu { display: none; position: fixed; top: 88px; left: 0; width: 100%; background: var(--white); z-index: 999; padding: 32px 24px; border-bottom: 1px solid #e5e7eb; flex-direction: column; gap: 24px; }
+        .mobile-menu { display: none; position: relative;
+            padding-top: 60px; top: 88px; left: 0; width: 100%; background: var(--white); z-index: 999; padding: 32px 24px; border-bottom: 1px solid #e5e7eb; flex-direction: column; gap: 24px; }
         .mobile-menu.active { display: flex; }
+
+		/* Style and position the X */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: transparent;
+            border: none;
+            font-size: 40px;      /* Large, elegant size */
+            font-weight: 50;     /* A thinner font weight makes it look premium */
+            color: #333333;       /* Adjust this color to contrast your menu background */
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Subtle hover effect */
+        .close-btn:hover {
+            opacity: 0.6;
+        }
+
         .btn-submit { width: 100%; background: var(--black); color: var(--white); padding: 20px; text-transform: uppercase; font-size: 11px; letter-spacing: 0.3em; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; }
         .btn-submit:hover { background: var(--gold); }
 
@@ -327,6 +350,7 @@
 	</nav>
 
 	<div class="mobile-menu" id="mobileMenu">
+		<button id="closeBtn" class="close-btn" aria-label="Close menu">&times;</button>
 		<a href="index.html" class="nav-item">Home</a>
 		<a href="about.html" class="nav-item">About</a>
 		<a href="london.html" class="nav-item">London</a>
@@ -1613,6 +1637,11 @@
                 }
             });
         }
+
+		const closeBtn = document.getElementById('closeBtn');
+        closeBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
 
         function closeModal() {
             modal.classList.remove('active');
