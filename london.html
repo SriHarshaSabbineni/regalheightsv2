@@ -146,13 +146,57 @@
 
         /* Horizontal Scroll Area */
         .scroll-container { display: flex; overflow-x: auto; gap: 24px; padding-bottom: 30px; margin-bottom: 40px; scroll-snap-type: x mandatory; scrollbar-width: none; }
-        .scroll-container:last-of-type { margin-bottom: 0; }
-        .scroll-container::-webkit-scrollbar { display: none; }
-        .scroll-card { flex: 0 0 380px; scroll-snap-align: start; position: relative; height: 500px; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        @media (max-width: 768px) { .scroll-container { width: 100vw; margin-left: -5vw; padding-left: 5vw; padding-right: 5vw; } .scroll-card { flex: 0 0 85vw; height: 450px; } }
-        .scroll-card:hover .slider img.active { transform: scale(1.05); }
-        .card-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(15, 18, 53, 0.95) 0%, rgba(15, 18, 53, 0.7) 45%, transparent 100%); padding: 40px 24px 24px; color: white; z-index: 5; pointer-events: none; }
-        .card-overlay * { pointer-events: auto; } 
+        /* Horizontal Scroll Area */
+		.scroll-container { display: flex; overflow-x: auto; gap: 24px; padding-bottom: 30px; margin-bottom: 40px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+		.scroll-container:last-of-type { margin-bottom: 0; }
+		.scroll-container::-webkit-scrollbar { display: none; }
+
+		/* 1. Make the card a flex column and slightly taller */
+		.scroll-card { 
+			flex: 0 0 380px; 
+			scroll-snap-align: start; 
+			position: relative; 
+			height: 580px; /* Taller card */
+			border-radius: 16px; 
+			overflow: hidden; 
+			box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+			display: flex; /* Make it a flex container */
+			flex-direction: column; /* Stack children vertically */
+			background: var(--navy-dark); /* Ensure no white gaps */
+		}
+
+		/* 2. Adjust mobile heights to match the new layout */
+		@media (max-width: 768px) { 
+			.scroll-container { width: 100vw; margin-left: -5vw; padding-left: 5vw; padding-right: 5vw; } 
+			.scroll-card { flex: 0 0 85vw; height: 530px; } 
+		}
+
+		.scroll-card:hover .slider img.active { transform: scale(1.05); }
+
+		/* 3. Restrict the image slider to the top 68% of the card */
+		.slider { 
+			position: relative; 
+			width: 100%; 
+			height: 68%; /* Take up the top section */
+			flex-shrink: 0; /* Prevent it from being squished */
+			overflow: hidden; 
+			background: #e5e7eb; 
+			cursor: pointer; 
+		}
+		/* 4. Turn the overlay into a solid block taking the remaining ~32% */
+		.card-overlay { 
+			position: relative; 
+			flex-grow: 1; /* Fills the rest of the bottom space */
+			background: var(--navy-dark); /* Solid brand blue instead of gradient */
+			padding: 24px; 
+			color: white; 
+			display: flex; 
+			flex-direction: column; 
+			justify-content: center; /* Center the text vertically in the blue box */
+			z-index: 5; 
+		}
+
+		/* You can safely delete the line that said: .card-overlay * { pointer-events: auto; } */
         .overlay-title { font-size: 1.6rem; margin-bottom: 4px; }
         .overlay-location { font-size: 0.9rem; color: rgba(255, 255, 255, 0.8); font-weight: 300; margin-bottom: 12px; }
         .overlay-meta { font-size: 0.85rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; font-weight: 600; }
