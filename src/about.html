@@ -373,29 +373,25 @@
 			margin: 0 auto;
 		}
 
-		/* Reversed Button Logic: Gold primarily -> White/Black on hover */
-		.btn-cta {
-			display: inline-block;
-			padding: 16px 48px;
+		/* Standardized CTA Button */
+		.btn-primary {
+			background: var(--white);
+			color: var(--black);
+			padding: 20px 40px;
+			text-transform: uppercase;
 			font-size: 10px;
 			letter-spacing: 0.2em;
-			text-transform: uppercase;
 			font-weight: 700;
+			border: none;
+			cursor: pointer;
+			transition: all 0.3s;
 			text-decoration: none;
-			transition: all 0.3s ease;
-			border-radius: 4px;
-			
-			/* Primary State: Gold Background, White Text */
-			background: var(--gold) !important;
-			color: var(--white) !important;
-			border: 1px solid var(--gold);
+			display: inline-block;
 		}
 
-		.btn-cta:hover {
-			/* Hover State: White Background, Navy Text */
-			background: var(--white) !important;
-			color: var(--black) !important;
-			border-color: var(--white) !important;
+		.btn-primary:hover {
+			background: var(--gold);
+			color: var(--white);
 		}
 
         /* Footer */
@@ -873,7 +869,7 @@
 					Let our team of experts guide you through your luxury property aquisition/ referral/ short stay accommodation journey with absolute discretion, confidentiality and care.
 				</p>
 				
-				<a href="/#contact" class="btn-cta">Get In Touch</a>
+				<a href="/#contact" class="btn-primary">Get In Touch</a>
 			</div>
 		</section>
     </main>
