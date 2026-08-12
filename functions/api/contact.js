@@ -34,7 +34,7 @@ export async function onRequestPost(context) {
         to: ['sriharsha.sabbineni@gmail.com'],
         subject: `New Enquiry: ${input.interest || 'Website Form'}`,
         html: htmlBody,
-        reply_to: input.email
+        ...(input.email && input.email.includes('@') ? { reply_to: input.email } : {})
       })
     });
 
