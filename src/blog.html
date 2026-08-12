@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Regal Heights Journal - Expert commentary on London's luxury short-let market, global property acquisitions, and real estate trends.">
+    <meta name="keywords" content="luxury property blog, real estate insights, investment advice, property trends, London real estate, Dubai properties">
+    <meta name="author" content="Regal Heights">
+    <meta property="og:title" content="The Regal Heights Journal | Regal Heights">
+    <meta property="og:description" content="Expert commentary on luxury short-lets, prime global property acquisitions, and exclusive lifestyle trends.">
+    <meta property="og:type" content="website">
+    <title>The Regal Heights Journal | Regal Heights</title>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --black: #171b4d; /* Midnight Navy */
+            --navy-dark: #0F1235;
+            --white: #ffffff;
+            --off-white: #fcfcfc; /* Light Gray */
+            --text-gray: #4a4a4a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white); 
+            color: var(--black);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+            padding: 24px 0;
+        }
+        
+        nav.scrolled {
+            padding: 16px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+        
+        .nav-item {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--black);
+            transition: color 0.3s;
+        }
+        
+        .nav-item:hover {
+            color: var(--gold);
+        }
+        
+        .btn-inquire {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 24px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-left: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-inquire:hover {
+            background: var(--gold);
+        }
+        
+        .menu-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: relative;
+            padding-top: 60px;
+            top: 88px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 999;
+            padding: 32px 24px;
+            border-bottom: 1px solid #e5e7eb;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: transparent;
+            border: none;
+            font-size: 40px;      
+            font-weight: 50;     
+            color: #333333;       
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-btn:hover {
+            opacity: 0.6;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--black);
+            color: var(--white);
+            padding: 20px;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background: var(--gold);
+        }
+
+        /* Page Header */
+		.page-header {
+			position: relative;
+			min-height: 60vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			padding-top: 125px; 
+			padding-bottom: 65px; 
+		}
+        
+        .page-header-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(23, 27, 77, 0.6);
+            z-index: 10;
+        }
+        
+        .page-header-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .page-header-content {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            color: var(--white);
+            padding: 0 24px;
+            max-width: 900px;
+        }
+        
+        .page-header-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        
+        .page-header-subtitle {
+            font-weight: 300;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            opacity: 0.95;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+        
+        /* Blog Section (Minimalist List View) */
+        .blog-section {
+            padding: 96px 24px;
+            background: var(--white);
+        }
+        
+        .blog-container {
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .main-heading {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            color: var(--navy-dark);
+        }
+        
+        .blog-list {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 64px;
+        }
+        
+        /* Editorial List Item Styling */
+        .blog-item {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            padding: 32px 0;
+            border-bottom: 1px solid #e5e7eb;
+            align-items: flex-start;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-item:first-child {
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        @media (min-width: 768px) {
+            .blog-item {
+                gap: 40px;
+                padding: 40px 0;
+                align-items: center;
+            }
+        }
+        
+        /* Thumbnail Image */
+        .blog-img-wrapper {
+            flex-shrink: 0;
+            width: 100px; 
+            height: 100px;
+            overflow: hidden;
+            background: #e5e7eb;
+        }
+
+        @media (min-width: 768px) {
+            .blog-img-wrapper {
+                width: 240px; 
+                aspect-ratio: 3/2;
+                height: auto;
+            }
+        }
+        
+        .blog-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .blog-item:hover .blog-img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+        
+        .blog-meta-container {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .blog-date {
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* --- UPDATED: Monochromatic Title Hover --- */
+        .blog-title, .blog-title a {
+            font-size: 18px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            font-weight: 600;
+            color: var(--black); /* Forces the title to start Black */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .blog-title:hover, .blog-title a:hover {
+            color: var(--text-gray); /* Turns Dark Grey on hover */
+        }
+
+        @media (min-width: 768px) {
+            .blog-title {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+        }
+        
+        .blog-excerpt {
+            color: var(--text-gray);
+            font-weight: 300;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; 
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* --- UPDATED: Monochromatic Read More Hover --- */
+        .blog-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--black); /* Starts Black */
+            border-bottom: 1px solid var(--black);
+            padding-bottom: 4px;
+            transition: all 0.3s;
+            align-self: flex-start; 
+        }
+        
+        .blog-read-more:hover {
+            color: var(--text-gray); /* Turns Dark Grey on hover */
+            border-color: var(--text-gray);
+        }
+
+        /* --- UPDATED: Advanced Pagination Styles --- */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 48px;
+            flex-wrap: wrap; /* Allows wrapping on very small screens */
+        }
+
+        .page-btn {
+            background: var(--white);
+            border: 1px solid #e5e7eb;
+            color: var(--text-gray);
+            min-width: 40px; /* Changed from strict width to allow Next/Prev text */
+            padding: 0 12px; /* Added padding for Next/Prev buttons */
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .page-btn.active {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background: #f9fafb;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 96px 24px;
+            background: #0F1235;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 24px;
+        }
+
+        .cta-text {
+            font-weight: 300;
+            font-size: 1.125rem;
+            margin-bottom: 48px;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            padding: 20px 40px;
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold);
+            color: var(--white);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 80px 24px;
+            background: var(--white);
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer-logo {
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        
+        .footer-link {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .footer-link:hover {
+            color: var(--black);
+        }
+        
+        .copyright {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--text-gray);
+        }
+
+		/* Social & Floating Chat CSS */
+		.social-links {
+			display: flex;
+			justify-content: center;
+			gap: 24px;
+			margin-bottom: 32px;
+		}
+
+		.social-icon {
+			color: var(--text-gray);
+			transition: color 0.3s, transform 0.3s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.social-icon:hover {
+			color: var(--black);
+			transform: translateY(-2px);
+		}
+
+		.social-icon.linkedin { color: #084C91; }
+		.social-icon.instagram { color: #8E2C5E; }
+		.social-icon.whatsapp { color: #166A56; }
+		.social-icon.email { color: #d4af37; }
+
+		/* Floating WhatsApp Widget */
+		.floating-whatsapp {
+			position: fixed;
+			bottom: 32px;
+			right: 32px;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 1000;
+			text-decoration: none;
+			color: #ffffff;
+			background: linear-gradient(145deg, #25D366, #128C7E);
+			box-shadow: 0 12px 28px rgba(18, 140, 126, 0.28), inset 0 1px 0 rgba(255,255,255,0.25);
+			transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+			overflow: hidden;
+		}
+
+		.floating-whatsapp::before {
+			content: "";
+			position: absolute;
+			inset: 1px;
+			border-radius: inherit;
+			background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0));
+			pointer-events: none;
+		}
+
+		.floating-whatsapp svg {
+			width: 28px;
+			height: 28px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.floating-whatsapp:hover {
+			transform: translateY(-2px) scale(1.12);
+			filter: saturate(1.05);
+			box-shadow: 0 16px 34px rgba(18, 140, 126, 0.36);
+		}
+    </style>
+
+    <link rel="canonical" href="https://regalheights.co.uk/blog">
+</head>
+<body>
+    <nav id="navbar">
+		<div class="nav-container">
+			<div class="logo-group">
+                <a href="/">
+					<img src="/regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+				</a>
+			</div>
+			<div class="nav-links">
+				<a href="/" class="nav-item">Home</a>
+				<a href="/about" class="nav-item">About</a>
+				<a href="/london" class="nav-item">London</a>
+				<a href="/property-sales" class="nav-item">Global</a>
+				<a href="/dubai" class="nav-item">Dubai</a>
+				<a href="/#contact" class="btn-inquire">Enquire</a>
+			</div>
+			<button class="menu-toggle" id="menuToggle">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="3" y1="12" x2="21" y2="12"></line>
+					<line x1="3" y1="6" x2="21" y2="6"></line>
+					<line x1="3" y1="18" x2="21" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+	</nav>
+
+	<div class="mobile-menu" id="mobileMenu">
+        <button id="closeBtn" class="close-btn" aria-label="Close menu">&times;</button>
+		<a href="/" class="nav-item">Home</a>
+		<a href="/about" class="nav-item">About</a>
+		<a href="/london" class="nav-item">London</a>
+		<a href="/property-sales" class="nav-item">Global</a>
+		<a href="/dubai" class="nav-item">Dubai</a>
+		<a href="/#contact" class="btn-submit" style="text-align: center;">Enquire</a>
+	</div>
+    
+    <main>
+        <div class="page-header">
+            <div class="page-header-bg">
+                <div class="page-header-overlay"></div>
+                <img src="https://images.pexels.com/photos/34651444/pexels-photo-34651444.jpeg?auto=format&fit=crop&q=80&w=2000" alt="Regal Heights Journal" class="page-header-img">
+            </div>
+            <div class="page-header-content">
+                <h1 class="page-header-title font-serif">The Regal Heights Journal</h1>
+                <p class="page-header-subtitle">Expert commentary on London's luxury short-let market, prime global property acquisitions, and the lifestyle of the modern elite.</p>
+            </div>
+        </div>
+        
+        <section class="blog-section">
+            <div class="blog-container">
+                <div class="section-header">
+                    <span class="section-label">Editorial Focus</span>
+                    <h2 class="main-heading font-serif">Market Trends & Insights</h2>
+                </div>
+
+                <div class="blog-list" id="blogGrid">
+                    {% for post in collections.publishedPosts %}
+                    <a href="{{ post.url }}" class="blog-item item-card">
+                        <div class="blog-img-wrapper">
+                            <img src="{{ post.data.image }}" alt="{{ post.data.title }}" class="blog-img">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta-container">
+                                <span class="blog-date">{{ post.data.displayDate }}</span>
+                            </div>
+                            <h3 class="blog-title font-serif">{{ post.data.title }}</h3>
+                            <p class="blog-excerpt">{{ post.data.excerpt }}</p>
+                            <span class="blog-read-more">Read More →</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+
+                <div class="pagination" id="paginationControls"></div>
+
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title font-serif">Discuss Your Next Move</h2>
+                <p class="cta-text">Looking to secure a luxury serviced short-stay in London or acquire premium global real estate? Our dedicated team ensures a seamless experience.</p>
+                <a href="/#contact" class="btn-primary">Get in Touch</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+		<div class="footer-logo">
+			<img src="/regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+		</div>
+		
+		<div class="footer-links">
+			<a href="/terms" class="footer-link">Terms</a>
+			<a href="/privacy" class="footer-link">Privacy</a>
+			<a href="/london" class="footer-link">London Stays</a>
+			<a href="/property-sales" class="footer-link">Global Properties</a>
+			<a href="/#contact" class="footer-link">Contact</a>
+		</div>
+		
+		<div class="social-links">
+			<a href="https://www.linkedin.com/company/regal-heights-consultancy/" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+			</a>
+			<a href="https://instagram.com/regalheightsworld" target="_blank" class="social-icon instagram" aria-label="Instagram">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+			</a>
+			<a href="https://wa.me/447879991235" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+			</a>
+			<a href="mailto:info@regalheights.co.uk" class="social-icon email" aria-label="Email">
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+					<polyline points="22,6 12,13 2,6"></polyline>
+				</svg>
+			</a>
+		</div>
+
+		<p class="copyright">© 2026 Regal Heights • London • UK, All Rights Reserved.</p>
+	</footer>
+
+    <a href="https://wa.me/447879991235" class="floating-whatsapp" target="_blank" aria-label="Chat on WhatsApp">
+		<svg viewBox="0 0 32 32" fill="currentColor">
+			<path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.5 2.1 7.9L.4 31.6l7.9-2.1c2.3 1.3 5 2.1 7.7 2.1 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.7c-2.4 0-4.7-.7-6.6-2l-.5-.3-4.7 1.2 1.3-4.6-.3-.5c-1.4-2-2.1-4.3-2.1-6.8 0-6.8 5.5-12.3 12.3-12.3S28.3 9.2 28.3 16 22.8 29.1 16 29.1zm6.7-9.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.7-.2-1 .2s-1.1 1.2-1.3 1.4-.5.3-.9.1c-.4-.2-1.8-.7-3.4-2.2-1.3-1.1-2.2-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-1-2.4-1.3-3.3-.3-.8-.6-.7-1-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.5 1.4-1.5 3.5s1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 1 .4 1.8.7 2.4.9 1 .3 1.9.3 2.6.2.8-.1 2.3-.9 2.6-1.7.3-.8.3-1.5.2-1.7-.1-.2-.4-.3-.8-.5z"/>
+		</svg>
+    </a>
+    
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        const closeBtn = document.getElementById('closeBtn');
+        closeBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+        
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // ==========================================
+        // ADVANCED FOOLPROOF PAGINATION
+        // ==========================================
+        function initPagination() {
+            const itemsPerPage = 10;
+            // Array.from ensures it works safely across all browsers
+            const blogCards = Array.from(document.querySelectorAll('.item-card')); 
+            const totalPages = Math.ceil(blogCards.length / itemsPerPage);
+            const paginationContainer = document.getElementById('paginationControls');
+            
+            // Abort if no container or no cards exist
+            if (!paginationContainer || blogCards.length === 0) return;
+            
+            let currentPage = 1;
+
+            function renderPagination() {
+                paginationContainer.innerHTML = '';
+                
+                // Don't show pagination if there's only 1 page
+                if (totalPages <= 1) return; 
+
+                // --- 1. PREVIOUS BUTTON ---
+                const prevBtn = document.createElement('button');
+                prevBtn.classList.add('page-btn');
+                prevBtn.innerText = '← Prev';
+                prevBtn.disabled = currentPage === 1;
+                prevBtn.addEventListener('click', function() {
+                    if (currentPage > 1) goToPage(currentPage - 1);
+                });
+                paginationContainer.appendChild(prevBtn);
+
+                // --- 2. PAGE NUMBERS ---
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement('button');
+                    btn.classList.add('page-btn');
+                    if (i === currentPage) btn.classList.add('active');
+                    btn.innerText = i;
+                    
+                    btn.addEventListener('click', function() {
+                        goToPage(i);
+                    });
+                    
+                    paginationContainer.appendChild(btn);
+                }
+
+                // --- 3. NEXT BUTTON ---
+                const nextBtn = document.createElement('button');
+                nextBtn.classList.add('page-btn');
+                nextBtn.innerText = 'Next →';
+                nextBtn.disabled = currentPage === totalPages;
+                nextBtn.addEventListener('click', function() {
+                    if (currentPage < totalPages) goToPage(currentPage + 1);
+                });
+                paginationContainer.appendChild(nextBtn);
+            }
+
+            // Core Page Update Function (without scrolling)
+            function updatePageDisplay(pageNumber) {
+                currentPage = pageNumber;
+                const start = (pageNumber - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                
+                blogCards.forEach((card, index) => {
+                    if (index >= start && index < end) {
+                        card.style.display = ''; 
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                renderPagination();
+            }
+
+            // Handles clicking a page (updates display AND scrolls up)
+            function goToPage(pageNumber) {
+                updatePageDisplay(pageNumber);
+                const blogGridTop = document.getElementById('blogGrid').offsetTop - 150;
+                window.scrollTo({ top: blogGridTop, behavior: 'smooth' });
+            }
+
+            // Initialize display instantly on load (without scrolling)
+            updatePageDisplay(1);
+        }
+
+        // --- FOOLPROOF INITIALIZATION ---
+        // Ensures the script runs perfectly whether the page loads fast or slow
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initPagination);
+        } else {
+            initPagination();
+        }
+    </script>
+</body>
+</html>
