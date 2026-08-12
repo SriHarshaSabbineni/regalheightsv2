@@ -31,7 +31,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: 'Regal Heights Website <onboarding@resend.dev>', // Needs to be verified domain for production
-        to: ['info@regalheights.co.uk'],
+        to: ['sriharsha.sabbineni@gmail.com'],
         subject: `New Enquiry: ${input.interest || 'Website Form'}`,
         html: htmlBody,
         reply_to: input.email
