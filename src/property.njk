@@ -72,8 +72,8 @@ permalink: "/london/{{ property.id }}/index.html"
         .property-thumb { width: 80px; height: 60px; object-fit: cover; cursor: pointer; opacity: 0.5; border-radius: 4px; transition: 0.3s; flex-shrink: 0; border: 2px solid transparent; }
         .property-thumb.active, .property-thumb:hover { opacity: 1; border-color: var(--gold); }
 
-        .property-info { display: flex; flex-direction: column; background: var(--white); border-top: 8px solid var(--navy-dark); box-shadow: 0 -4px 20px rgba(0,0,0,0.05); z-index: 10; position: relative; }
-        @media (min-width: 900px) { .property-info { height: 100%; overflow-y: auto; border-top: none; border-left: 8px solid var(--navy-dark); box-shadow: -4px 0 20px rgba(0,0,0,0.05); } }
+        .property-info { display: flex; flex-direction: column; background: var(--white); }
+        @media (min-width: 900px) { .property-info { height: 100%; overflow-y: auto; } }
 
         .property-header { padding: 32px 32px 24px; border-bottom: 1px solid rgba(15, 18, 53, 0.1); }
         .property-title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin: 8px 0; color: var(--black); line-height: 1.1; }
@@ -101,8 +101,16 @@ permalink: "/london/{{ property.id }}/index.html"
         .property-btn-row { display: flex; flex-direction: column; gap: 12px; padding: 16px 32px; background: #fcfcfc; border-top: 1px solid rgba(15, 18, 53, 0.1); }
         @media (min-width: 600px) { .property-form-row { flex-direction: row; } .property-btn-row { flex-direction: row; gap: 8px; } }
 
+        /* CTA SECTION */
+        .cta-section { padding: 48px 24px; background: #0F1235; color: var(--white); text-align: center; }
+        .cta-container { max-width: 800px; margin: 0 auto; }
+        .cta-title { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px; }
+        .cta-text { font-weight: 300; font-size: 1.125rem; margin-bottom: 48px; opacity: 0.9; }
+        .btn-primary { background: var(--white); color: var(--black); padding: 20px 40px; text-transform: uppercase; font-size: 10px; letter-spacing: 0.2em; font-weight: 700; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; }
+        .btn-primary:hover { background: var(--gold); color: var(--white); }
+
         /* FOOTER */
-        footer { padding: 80px 24px; background: var(--white); text-align: center; border-top: 8px solid var(--navy-dark); }
+        footer { padding: 80px 24px; background: var(--white); text-align: center; border-top: 1px solid #e5e7eb; }
         .footer-logo { margin-bottom: 60px; display: flex; justify-content: center; align-items: center; gap: 8px; }
         .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 48px; }
         .footer-link { text-decoration: none; color: var(--text-gray); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; transition: color 0.3s; font-weight: 500; }
@@ -267,6 +275,14 @@ permalink: "/london/{{ property.id }}/index.html"
                 </div>
             </div>
         </div>
+
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title font-serif">Ready to Experience London Living?</h2>
+                <p class="cta-text">Discover our collection of premium serviced apartments and unlock exclusive direct-booking benefits today.</p>
+                <a href="/#contact" class="btn-primary">Get In Touch</a>
+            </div>
+        </section>
     </main>
 
     <footer>
