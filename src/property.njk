@@ -1,0 +1,363 @@
+---
+pagination:
+  data: properties
+  size: 1
+  alias: property
+permalink: "/london/{{ property.id }}/index.html"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book {{ property.title }} - {{ property.meta }}">
+    <title>{{ property.title }} | Regal Heights</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        :root {
+            --gold: #d4af37;
+            --black: #171b4d; 
+            --navy-dark: #0F1235;
+            --white: #ffffff;
+            --off-white: #fcfcfc;
+            --text-gray: #555555;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--off-white); color: var(--black); line-height: 1.6; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Navigation (Copied from main layout) */
+        nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: var(--white); border-bottom: 1px solid #e5e7eb; transition: all 0.3s ease; padding: 16px 0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); }
+        .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-group { display: flex; align-items: center; gap: 12px; }
+        .nav-links { display: none; align-items: center; gap: 40px; }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+        .nav-item { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; text-decoration: none; color: var(--black); transition: color 0.3s; }
+        .nav-item:hover { color: var(--gold); }
+        .btn-inquire { background: var(--black); color: var(--white); padding: 10px 24px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.3s; margin-left: 16px; border: none; cursor: pointer; }
+        .btn-inquire:hover { background: var(--gold); }
+        .menu-toggle { display: block; background: none; border: none; cursor: pointer; }
+        @media (min-width: 768px) { .menu-toggle { display: none; } }
+        
+        .mobile-menu { display: none; position: relative; padding-top: 60px; top: 88px; left: 0; width: 100%; background: var(--white); z-index: 999; padding: 32px 24px; border-bottom: 1px solid #e5e7eb; flex-direction: column; gap: 24px; }
+        .mobile-menu.active { display: flex; }
+        .close-btn { position: absolute; top: 20px; right: 25px; background: transparent; border: none; font-size: 40px; font-weight: 50; color: #333333; cursor: pointer; line-height: 1; padding: 0; }
+        .close-btn:hover { opacity: 0.6; }
+        .btn-submit { width: 100%; background: #171b4d; color: var(--white); padding: 20px; text-transform: uppercase; font-size: 11px; letter-spacing: 0.3em; font-weight: 700; border: none !important; cursor: pointer; transition: all 0.3s; }
+        .btn-submit:hover { background: var(--gold); color: white; }
+        .btn-whatsapp { background: white !important; border: 1px solid #25D366 !important; color: #25D366 !important; }
+        .btn-whatsapp:hover { background: #25D366 !important; color: white !important; }
+
+        /* Property Details Layout */
+        main { padding-top: 80px; min-height: calc(100vh - 80px); display: flex; flex-direction: column; }
+        .property-grid { display: flex; flex-direction: column; width: 100%; flex-grow: 1; }
+        @media (min-width: 900px) { .property-grid { display: grid; grid-template-columns: 1fr 1.2fr; height: calc(100vh - 80px); overflow: hidden; } }
+
+        .property-gallery-container { display: flex; flex-direction: column; background: var(--navy-dark); width: 100%; flex-shrink: 0; }
+        @media (min-width: 900px) { .property-gallery-container { height: 100%; overflow: hidden; } }
+
+        .property-main-image { flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; background: #e5e7eb; }
+        .property-main-image img { width: 100%; height: 100%; object-fit: cover; } 
+        
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.9); color: var(--black); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; z-index: 10; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .slider-btn:hover { background: var(--gold); color: var(--white); }
+        .property-main-image .prev { left: 16px; }
+        .property-main-image .next { right: 16px; }
+
+        .property-thumbnails { display: flex; overflow-x: auto; gap: 8px; padding: 12px; background: rgba(0, 0, 0, 0.3); scrollbar-width: none; flex-shrink: 0;}
+        .property-thumbnails::-webkit-scrollbar { display: none; }
+        .property-thumb { width: 80px; height: 60px; object-fit: cover; cursor: pointer; opacity: 0.5; border-radius: 4px; transition: 0.3s; flex-shrink: 0; border: 2px solid transparent; }
+        .property-thumb.active, .property-thumb:hover { opacity: 1; border-color: var(--gold); }
+
+        .property-info { display: flex; flex-direction: column; background: var(--white); }
+        @media (min-width: 900px) { .property-info { height: 100%; overflow-y: auto; } }
+
+        .property-header { padding: 32px 32px 24px; border-bottom: 1px solid rgba(15, 18, 53, 0.1); }
+        .property-title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin: 8px 0; color: var(--black); line-height: 1.1; }
+        .property-meta { font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-weight: 700;}
+        .property-location { font-size: 14px; color: var(--text-gray); }
+        
+        .property-scroll-area { padding: 32px; flex-grow: 1; } 
+        .property-section { margin-bottom: 32px; }
+        .property-section h3 { font-size: 18px; margin-bottom: 16px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 4px; }
+        
+        .details-grid { display: grid; grid-template-columns: 1fr; gap: 32px; } 
+        
+        #propertyAmenities li::before, #propertyRules li::before, #propertyBookingRules li::before { content: none; margin: 0; }
+        #propertyAmenities { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin-top: 12px; list-style: none; }
+        #propertyAmenities li { background: rgba(212, 175, 55, 0.08); color: var(--black); padding: 8px 16px; border-radius: 30px; font-size: 12px; font-weight: 600; border: 1px solid rgba(212, 175, 55, 0.3); display: inline-block; text-transform: capitalize; }
+        #propertyRules, #propertyBookingRules { list-style-type: disc; padding-left: 20px; margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+        #propertyRules li, #propertyBookingRules li { font-size: 14px; color: var(--text-gray); font-weight: 400; background: none; border: none; padding: 0; }
+        
+        .property-map iframe { width: 100%; height: 250px; border: 0; border-radius: 8px; margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        .property-footer { padding: 24px 32px; border-top: 1px solid rgba(15, 18, 53, 0.1); display: flex; justify-content: space-between; align-items: center; background: #fcfcfc; flex-shrink: 0;}
+        @media (max-width: 400px) { .property-footer { flex-direction: column; gap: 16px; align-items: stretch; text-align: center; } }
+        
+        .property-form-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+        .property-btn-row { display: flex; flex-direction: column; gap: 12px; padding: 16px 32px; background: #fcfcfc; border-top: 1px solid rgba(15, 18, 53, 0.1); }
+        @media (min-width: 600px) { .property-form-row { flex-direction: row; } .property-btn-row { flex-direction: row; gap: 8px; } }
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="nav-container">
+            <div class="logo-group">
+                <a href="/">
+                    <img src="/regalheightslogo.jpeg" alt="Regal Heights Logo" style="height: 40px;">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-item">Home</a>
+                <a href="/about" class="nav-item">About</a>
+                <a href="/london" class="nav-item">London</a>
+                <a href="/property-sales" class="nav-item">Global</a>
+                <a href="/dubai" class="nav-item">Dubai</a>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <button id="closeBtn" class="close-btn" aria-label="Close menu">&times;</button>
+        <a href="/" class="nav-item">Home</a>
+        <a href="/about" class="nav-item">About</a>
+        <a href="/london" class="nav-item">London</a>
+        <a href="/property-sales" class="nav-item">Global</a>
+        <a href="/dubai" class="nav-item">Dubai</a>
+    </div>
+
+    <main>
+        <div class="property-grid">
+            <div class="property-gallery-container">
+                <div class="property-main-image">
+                    <button class="slider-btn prev" id="propertyPrev">‹</button>
+                    <img id="propertyMainImg" src="/{{ property.images[0] }}" alt="{{ property.title }}">
+                    <button class="slider-btn next" id="propertyNext">›</button>
+                </div>
+                <div class="property-thumbnails" id="propertyThumbnails">
+                    {% for img in property.images %}
+                    <img src="/{{ img }}" class="property-thumb {% if loop.first %}active{% endif %}" onclick="changePropertyImage({{ loop.index0 }})">
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="property-info">
+                <div class="property-header">
+                    <a href="/london" style="font-size: 11px; letter-spacing: 0.1em; color: var(--text-gray); text-decoration: none; margin-bottom: 12px; display: inline-block;">&larr; Back to Listings</a><br/>
+                    <span class="property-meta">{{ property.meta }}</span>
+                    <h1 class="property-title font-serif">{{ property.title }}</h1>
+                    <p class="property-location">{{ property.location }}</p>
+                </div>
+
+                <div class="property-scroll-area">
+                    <div class="property-section">
+                        <h3>Description</h3>
+                        <div style="font-size: 14px; color: var(--text-gray); line-height: 1.7;">
+                            {{ property.description | safe }}
+                        </div>
+                    </div>
+
+                    <div class="property-section">
+                        <h3>Details & Amenities</h3>
+                        <div class="details-grid">
+                            {% if property.amenities %}
+                            <div>
+                                <h4 style="font-size:14px; margin-bottom: 8px; color: var(--black);">Included in your stay</h4>
+                                <ul class="property-list" id="propertyAmenities">
+                                    {% for amenity in property.amenities %}
+                                    <li>{{ amenity }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                            <div>
+                                <h4 style="font-size:14px; margin-bottom: 8px; color: var(--black);">Booking Rules</h4>
+                                <ul class="property-list" id="propertyBookingRules">
+                                    <li>ID required for check-in</li>
+                                    <li>£300 refundable damage deposit which can be preauthorized</li>
+                                    <li>Late check-ins from 8:30pm attract £40 fee upwards to £50 by midnight or beyond</li>
+                                </ul>
+                            </div>
+                            {% if property.rules %}
+                            <div>
+                                <h4 style="font-size:14px; margin-bottom: 8px; color: var(--black);">House Rules</h4>
+                                <ul class="property-list" id="propertyRules">
+                                    {% for rule in property.rules %}
+                                    <li>{{ rule }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% if property.mapEmbedUrl %}
+                    <div class="property-section" style="margin-bottom: 24px;">
+                        <h3>Location</h3>
+                        <div class="property-map">
+                            <iframe src="{{ property.mapEmbedUrl }}" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="property-section" style="background: rgba(15, 18, 53, 0.03); padding: 16px; border-radius: 8px; margin-bottom: 0;">
+                        <h3 style="font-size: 16px; margin-bottom: 12px; border-bottom: none;">Request Booking</h3>
+                        <form id="propertyContactForm">
+                            <input type="hidden" name="interest" value="London Stay Enquiry">
+                            <input type="hidden" name="property_name" value="{{ property.title }}">
+                            
+                            <div class="property-form-row">
+                                <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; background: white; border: 1px solid #d1d5db; border-radius: 4px; font-size: 12px; flex: 1; min-width: 0; font-family: inherit; outline: none;">
+                                <input type="email" name="email" placeholder="Email" required style="padding: 10px; background: white; border: 1px solid #d1d5db; border-radius: 4px; font-size: 12px; flex: 1; min-width: 0; font-family: inherit; outline: none;">
+                            </div>
+                            
+                            <div class="property-form-row">
+                                <input type="text" name="checkin" id="propertyCheckin" placeholder="Check-in Date" required style="padding: 10px; background: white; border: 1px solid #d1d5db; border-radius: 4px; font-size: 12px; flex: 1; min-width: 0; font-family: inherit; outline: none;">
+                                <input type="text" name="checkout" id="propertyCheckout" placeholder="Check-out Date" required style="padding: 10px; background: white; border: 1px solid #d1d5db; border-radius: 4px; font-size: 12px; flex: 1; min-width: 0; font-family: inherit; outline: none;">
+                            </div>
+                            
+                            <input type="number" name="guests" placeholder="Number of Guests" min="1" required style="padding: 10px; background: white; border: 1px solid #d1d5db; border-radius: 4px; font-size: 12px; width: 100%; margin-bottom: 8px; font-family: inherit; outline: none; box-sizing: border-box;">
+                        </form>
+                        <div id="propertyFormStatus" style="font-size: 12px; text-align: center; font-weight: 500;"></div>
+                    </div>
+                </div>
+                
+                <div class="property-btn-row">
+                    <button type="button" class="btn-submit" id="btnPropertyEmail" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px; font-size: 11px; margin: 0;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Submit Enquiry
+                    </button>
+                    <button type="button" class="btn-submit btn-whatsapp" id="btnPropertyWhatsapp" style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px; font-size: 11px; margin: 0; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        Send on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gallery Navigation
+            const images = [
+                {% for img in property.images %}"{{ img }}"{% if not loop.last %},{% endif %}{% endfor %}
+            ];
+            let currentIndex = 0;
+            const mainImg = document.getElementById('propertyMainImg');
+            const thumbs = document.querySelectorAll('.property-thumb');
+            
+            window.changePropertyImage = function(index) {
+                currentIndex = index;
+                mainImg.src = "/" + images[currentIndex];
+                thumbs.forEach((t, idx) => {
+                    if (idx === currentIndex) {
+                        t.classList.add('active');
+                        t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    } else {
+                        t.classList.remove('active');
+                    }
+                });
+            };
+            
+            const nextBtn = document.getElementById('propertyNext');
+            const prevBtn = document.getElementById('propertyPrev');
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if(images.length > 0) {
+                        window.changePropertyImage((currentIndex + 1) % images.length);
+                    }
+                });
+            }
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if(images.length > 0) {
+                        window.changePropertyImage((currentIndex - 1 + images.length) % images.length);
+                    }
+                });
+            }
+
+            // Mobile menu
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeBtn = document.getElementById('closeBtn');
+            
+            if (menuToggle) menuToggle.addEventListener('click', () => mobileMenu.classList.add('active'));
+            if (closeBtn) closeBtn.addEventListener('click', () => mobileMenu.classList.remove('active'));
+
+            // Initialize Flatpickr and Form Handlers
+            if (typeof flatpickr !== 'undefined') {
+                const checkOutFp = flatpickr("#propertyCheckout", { minDate: "today", disableMobile: true });
+                flatpickr("#propertyCheckin", {
+                    minDate: "today",
+                    disableMobile: true,
+                    onChange: function(selectedDates, dateStr, instance) {
+                        if (checkOutFp && selectedDates.length > 0) {
+                            const nextDay = new Date(selectedDates[0]);
+                            nextDay.setDate(nextDay.getDate() + 1);
+                            checkOutFp.set('minDate', nextDay);
+                        }
+                    }
+                });
+            }
+
+            const form = document.getElementById('propertyContactForm');
+            const btnEmail = document.getElementById('btnPropertyEmail');
+            const btnWhatsapp = document.getElementById('btnPropertyWhatsapp');
+            const status = document.getElementById('propertyFormStatus');
+
+            if (btnEmail) {
+                btnEmail.addEventListener('click', async function() {
+                    if (!form.reportValidity()) return;
+                    const data = Object.fromEntries(new FormData(form).entries());
+                    data.message = `Property: ${data.property_name}\nDates: ${data.checkin} to ${data.checkout}\nGuests: ${data.guests}`;
+                    
+                    btnEmail.disabled = true;
+                    btnEmail.innerHTML = 'Sending...';
+                    status.style.color = 'var(--text-gray)';
+                    status.innerText = '';
+                    
+                    try {
+                        const res = await fetch('/api/contact', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+                        
+                        if (res.ok) {
+                            status.style.color = 'green';
+                            status.innerText = 'Sent successfully!';
+                            form.reset();
+                        } else {
+                            throw new Error('Server error');
+                        }
+                    } catch (e) {
+                        status.style.color = 'red';
+                        status.innerText = 'Unable to send email right now. Please try WhatsApp.';
+                    } finally {
+                        btnEmail.disabled = false;
+                        btnEmail.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> Submit Enquiry`;
+                    }
+                });
+            }
+
+            if (btnWhatsapp) {
+                btnWhatsapp.addEventListener('click', function() {
+                    if (!form.reportValidity()) return;
+                    const data = Object.fromEntries(new FormData(form).entries());
+                    const text = `Hi, I am interested in booking *${data.property_name}*.\nName: ${data.name}\nContact: ${data.email}\nDates: ${data.checkin} to ${data.checkout}\nGuests: ${data.guests}`;
+                    window.open(`https://wa.me/447879991235?text=${encodeURIComponent(text)}`, '_blank');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
