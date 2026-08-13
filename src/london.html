@@ -176,7 +176,8 @@
 		/* Update mobile height */
 		@media (max-width: 768px) { 
 			.scroll-container { width: 100vw; margin-left: -5vw; padding-left: 5vw; padding-right: 5vw; } 
-			.scroll-card { flex: 0 0 85vw; height: var(--card-height-mobile); } /* Uses the variable */
+			.scroll-card { flex: 0 0 85vw; height: 620px; } /* Increased height to accommodate padding */
+            .card-overlay { padding-bottom: 48px; } /* Adds space below buttons */
 		}
 
 		.scroll-card:hover .slider img.active { transform: scale(1.05); }
