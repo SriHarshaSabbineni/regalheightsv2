@@ -100,6 +100,32 @@ permalink: "/london/{{ property.id }}/index.html"
         .property-form-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
         .property-btn-row { display: flex; flex-direction: column; gap: 12px; padding: 16px 32px; background: #fcfcfc; border-top: 1px solid rgba(15, 18, 53, 0.1); }
         @media (min-width: 600px) { .property-form-row { flex-direction: row; } .property-btn-row { flex-direction: row; gap: 8px; } }
+
+        /* FOOTER */
+        footer { padding: 80px 24px; background: var(--white); text-align: center; border-top: 1px solid #e5e7eb; }
+        .footer-logo { margin-bottom: 60px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+        .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 48px; }
+        .footer-link { text-decoration: none; color: var(--text-gray); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; transition: color 0.3s; font-weight: 500; }
+        .footer-link:hover { color: var(--black); }
+        .copyright { font-size: 9px; text-transform: uppercase; letter-spacing: 0.4em; color: var(--text-gray); }
+        
+        /* Social Links */
+        .social-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; }
+        .social-icon { color: var(--text-gray); transition: color 0.3s, transform 0.3s; display: flex; align-items: center; justify-content: center; }
+        .social-icon:hover { color: var(--black); transform: translateY(-2px); }
+        .social-icon.linkedin { color: #084C91; }
+        .social-icon.instagram { color: #8E2C5E; }
+        .social-icon.whatsapp { color: #166A56; }
+        .social-icon.facebook { color: #0B3C78; }
+        .social-icon.x { color: #111111; }
+        .social-icon.tiktok { color: #111111; transform: scale(1.2); filter: drop-shadow(1px 0 #00f2ea) drop-shadow(-1px 0 #ff0050); opacity: 0.85;}
+        .social-icon.email { color: #d4af37; }
+
+        /* Floating WhatsApp Widget */
+        .floating-whatsapp { position: fixed; bottom: 32px; right: 32px; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; text-decoration: none; color: #ffffff; background: linear-gradient(145deg, #25D366, #128C7E); box-shadow: 0 12px 28px rgba(18, 140, 126, 0.28), inset 0 1px 0 rgba(255,255,255,0.25); transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease; overflow: hidden; }
+        .floating-whatsapp::before { content: ""; position: absolute; inset: 1px; border-radius: inherit; background: linear-gradient(145deg, rgba(255,255,255,0.22), rgba(255,255,255,0)); pointer-events: none; }
+        .floating-whatsapp svg { width: 28px; height: 28px; position: relative; z-index: 1; }
+        .floating-whatsapp:hover { transform: translateY(-2px) scale(1.12); filter: saturate(1.05); box-shadow: 0 16px 34px rgba(18, 140, 126, 0.36); }
     </style>
 </head>
 <body>
