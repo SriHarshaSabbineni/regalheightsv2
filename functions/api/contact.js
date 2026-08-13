@@ -1,6 +1,27 @@
+function escapeHtml(unsafe) {
+  if (unsafe == null) return 'N/A';
+  return unsafe.toString()
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function onRequestPost(context) {
   try {
-    const input = await context.request.json();
+    let input;
+    try {
+      input = await context.request.json();
+      if (!input || typeof input !== 'object') {
+        throw new Error('Payload must be a JSON object');
+      }
+    } catch (e) {
+      return new Response(JSON.stringify({ error: "Bad Request: Invalid JSON payload." }), { 
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
 
     // Use RESEND API to send email
     const resendApiKey = context.env.RESEND_API_KEY;
@@ -10,18 +31,19 @@ export async function onRequestPost(context) {
     }
 
     let htmlBody = `<h3>New Enquiry from Regal Heights Website</h3>`;
-    htmlBody += `<p><strong>Name:</strong> ${input.name || 'N/A'}</p>`;
-    htmlBody += `<p><strong>Email:</strong> ${input.email || 'N/A'}</p>`;
-    htmlBody += `<p><strong>Interest:</strong> ${input.interest || 'N/A'}</p>`;
+    htmlBody += `<p><strong>Name:</strong> ${escapeHtml(input.name)}</p>`;
+    htmlBody += `<p><strong>Email:</strong> ${escapeHtml(input.email)}</p>`;
+    htmlBody += `<p><strong>Interest:</strong> ${escapeHtml(input.interest)}</p>`;
     
     if (input.interest === 'London Stay Enquiry') {
-        if (input.checkin) htmlBody += `<p><strong>Dates:</strong> ${input.checkin} to ${input.checkout}</p>`;
-        if (input.guests) htmlBody += `<p><strong>Guests:</strong> ${input.guests}</p>`;
+        if (input.checkin) htmlBody += `<p><strong>Dates:</strong> ${escapeHtml(input.checkin)} to ${escapeHtml(input.checkout)}</p>`;
+        if (input.guests) htmlBody += `<p><strong>Guests:</strong> ${escapeHtml(input.guests)}</p>`;
     } else {
-        if (input.budget) htmlBody += `<p><strong>Budget:</strong> ${input.budget}</p>`;
+        if (input.budget) htmlBody += `<p><strong>Budget:</strong> ${escapeHtml(input.budget)}</p>`;
     }
     
-    htmlBody += `<p><strong>Message:</strong><br/>${(input.message || '').replace(/\n/g, '<br/>')}</p>`;
+    const sanitizedMessage = escapeHtml(input.message).replace(/&#039;/g, "'").replace(/\n/g, '<br/>');
+    htmlBody += `<p><strong>Message:</strong><br/>${sanitizedMessage}</p>`;
 
     const res = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -32,7 +54,7 @@ export async function onRequestPost(context) {
       body: JSON.stringify({
         from: 'Regal Heights Website <onboarding@resend.dev>', // Needs to be verified domain for production
         to: [context.env.DESTINATION_EMAIL || 'sriharsha.sabbineni@gmail.com'],
-        subject: `New Enquiry: ${input.interest || 'Website Form'}`,
+        subject: `New Enquiry: ${escapeHtml(input.interest)}`,
         html: htmlBody,
         ...(input.email && input.email.includes('@') ? { reply_to: input.email } : {})
       })
