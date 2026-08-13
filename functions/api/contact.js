@@ -23,6 +23,13 @@ export async function onRequestPost(context) {
       });
     }
 
+    // SPAM PROTECTION: Honeypot check
+    // If the hidden 'honeypot' field is filled out, it's a bot.
+    // Return a fake 200 OK so the bot thinks it succeeded and doesn't retry.
+    if (input.honeypot) {
+        return new Response(JSON.stringify({ success: true, message: "Message sent (honeypot caught)." }), { status: 200 });
+    }
+
     // Use RESEND API to send email
     const resendApiKey = context.env.RESEND_API_KEY;
     

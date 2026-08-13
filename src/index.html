@@ -901,6 +901,11 @@
                 </div>
                 <div class="contact-form-area">
 					<form id="contactForm">
+						<!-- Honeypot Field -->
+						<div style="opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1;" aria-hidden="true">
+							<label>Leave this field blank if you are human: <input type="text" name="honeypot" tabindex="-1" autocomplete="off"></label>
+						</div>
+						
 						<div class="form-group">
 							<label class="form-label">Full Name</label>
 							<input type="text" name="name" class="form-input" required>
