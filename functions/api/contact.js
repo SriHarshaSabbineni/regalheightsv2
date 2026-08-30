@@ -59,7 +59,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Regal Heights Website <info@regalheights.co.uk>',
+        from: 'Regal Heights Website <onboarding@resend.dev>', // Needs to be verified domain for production
         to: [context.env.DESTINATION_EMAIL || 'info@regalheights.co.uk'],
         subject: `New Enquiry: ${escapeHtml(input.interest)}`,
         html: htmlBody,
